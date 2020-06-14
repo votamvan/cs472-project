@@ -18,7 +18,7 @@ import model.*;
 public class CheckoutServlet extends HttpServlet{
     private static final long serialVersionUID = 1L;
     String JSP_PAGE = "/WEB-INF/checkout.jsp";
-    String THANK_PAGE = "/WEB-INF/thankyou.jsp";
+    String THANK_PAGE = "/thankyou";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException{
