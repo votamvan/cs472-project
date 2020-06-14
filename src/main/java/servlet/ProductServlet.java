@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +18,7 @@ import model.Product;
 )
 public class ProductServlet extends HttpServlet{
     private static final long serialVersionUID = 1L;
-    String JSP_PAGE = "product.jsp";
+    String JSP_PAGE = "/WEB-INF/product.jsp";
     ProductDAO prodDao = new ProductDAO();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

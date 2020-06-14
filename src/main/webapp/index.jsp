@@ -27,6 +27,6 @@ strong {
     Product[] products = new ProductDAO().getAllProducts();
     request.setAttribute("products", products);
 %>
-<jsp:include page="product.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/product.jsp"></jsp:include>
 </body>
 </html>

@@ -17,7 +17,8 @@ import model.*;
 )
 public class CheckoutServlet extends HttpServlet{
     private static final long serialVersionUID = 1L;
-    String JSP_PAGE = "checkout.jsp";
+    String JSP_PAGE = "/WEB-INF/checkout.jsp";
+    String THANK_PAGE = "/WEB-INF/thankyou.jsp";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException{
@@ -31,7 +32,6 @@ public class CheckoutServlet extends HttpServlet{
             System.out.println("destroy cart");
             session.setAttribute("cart", null);
         }
-        JSP_PAGE = "thankyou.jsp";
-        resp.sendRedirect(JSP_PAGE);
+        resp.sendRedirect(THANK_PAGE);
     }
 }

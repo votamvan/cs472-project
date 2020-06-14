@@ -18,7 +18,7 @@ import model.*;
 )
 public class ShoppingCartServlet extends HttpServlet{
     private static final long serialVersionUID = 1L;
-    String JSP_PAGE = "cart.jsp";
+    String JSP_PAGE = "WEB-INF/cart.jsp";
     ProductDAO pdao = new ProductDAO();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

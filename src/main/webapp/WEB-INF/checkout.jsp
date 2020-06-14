@@ -17,7 +17,7 @@
 <body>
     <h2>Order Summary</h2>
 <% request.setAttribute("disableCheckout", true); %>
-<jsp:include page="cart.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/cart.jsp"></jsp:include>
 <hr>
 <form action="/checkout" method="POST">
     <hr>
