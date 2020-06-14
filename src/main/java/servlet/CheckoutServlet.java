@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-// internal import
-import model.*;
-
 @WebServlet(
     name = "CheckoutServlet",
     urlPatterns = {"/checkout"}
