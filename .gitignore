@@ -1,0 +1,9 @@
+*.class
+.DS_Store
+target
+.classpath
+.project
+.settings
+.vscode
+.factorypath
+tomcat.8080/
