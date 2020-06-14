@@ -7,8 +7,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Product {
 	private int id;
-	private String name;
+	private String title;
+	private String overview;
+	private String release_date;
+	private String poster_path;
+	private String genres;
 	private String price;
-	private String photo;
-	private String category;
+	// extra data
+	private String imdb_id;
 }

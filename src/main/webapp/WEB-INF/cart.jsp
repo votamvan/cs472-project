@@ -26,9 +26,9 @@
 					onclick="return confirm('Are you sure?')">Remove</a>
 				</td>
 				<td>${item.product.id}</td>
-				<td>${item.product.name}</td>
+				<td>${item.product.title}</td>
 				<td>
-					<img src="${item.product.photo}" width="120">
+					<img src="${item.product.poster_path}" width="120">
 				</td>
 				<td>${item.product.price}</td>
 				<td>${item.quantity}</td>

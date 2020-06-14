@@ -32,10 +32,12 @@ public class ProductDAO {
         while (result.next()) {
             Product p = new Product();
             p.setId(result.getInt("id"));
-            p.setName(result.getString("name"));
-            p.setPhoto(result.getString("photo"));
+            p.setTitle(result.getString("title"));
+            p.setOverview(result.getString("overview"));
+            p.setRelease_date(result.getString("release_date"));
+            p.setPoster_path(result.getString("poster_path"));
+            p.setGenres(result.getString("genres"));
             p.setPrice(result.getString("price"));
-            p.setCategory(result.getString("category"));
             products.add(p);
         }
         Product[] out = new Product[products.size()];

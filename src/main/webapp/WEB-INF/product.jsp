@@ -14,18 +14,22 @@
 	<table cellpadding="2" cellspacing="2" border="1">
 		<tr>
 			<th>Id</th>
-			<th>Name</th>
+			<th>Title</th>
+			<th>Overview</th>
+			<th>Genres</th>
 			<th>Photo</th>
 			<th>Price</th>
 		</tr>
 		<c:forEach var="product" items="${products}">
 			<tr>
 				<td>${product.id}</td>
-				<td>${product.name}</td>
+				<td>${product.title}</td>
+				<td>${product.overview}</td>
+				<td>${product.genres}</td>
 				<td>
-					<img src="${product.photo}" width="120">
+					<img src="${product.poster_path}" width="120">
 				</td>
-				<td>${product.price }</td>
+				<td>${product.price}</td>
 				<td align="center">
 					<a href="${pageContext.request.contextPath}/cart?&action=buy&id=${product.id}">Buy</a>
 				</td>
