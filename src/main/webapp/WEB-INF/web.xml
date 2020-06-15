@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>movie-shop</display-name>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>thankyou</servlet-name>
@@ -12,4 +12,18 @@
     <servlet-name>thankyou</servlet-name>
     <url-pattern>/thankyou</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>contact</servlet-name>
+    <jsp-file>/WEB-INF/jsp/contact.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>contact</servlet-name>
+    <url-pattern>/contact</url-pattern>
+  </servlet-mapping>
+  
+  <error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/WEB-INF/jsp/error.jsp</location>
+	</error-page>
 </web-app>

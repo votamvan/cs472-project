@@ -21,8 +21,8 @@ import model.User;
 )
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private String LOGIN_PAGE = "login.jsp";
-    private String HOME_PAGE = "index.jsp";
+    private String LOGIN_PAGE = "WEB-INF/jsp/login.jsp";
+    private String HOME_PAGE = "/";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

@@ -17,7 +17,7 @@ import model.*;
 )
 public class SignUpServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    String JSP_PAGE = "signup.jsp", LOGIN_PAGE="login.jsp";
+    String JSP_PAGE = "WEB-INF/jsp/signup.jsp", LOGIN_PAGE="login";
     UserDAO dao = new UserDAO();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
