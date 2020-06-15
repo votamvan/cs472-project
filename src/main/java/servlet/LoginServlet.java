@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +22,7 @@ public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private String LOGIN_PAGE = "WEB-INF/jsp/login.jsp";
     private String HOME_PAGE = "/";
+    private UserDAO dao = new UserDAO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -72,16 +72,12 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         System.out.println(username + "|" + password);
         String nextPage = "/login";
-        User user = null;
-        try {
-            user = new UserDAO().checkLogin(username, password);
-        }catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+        User user = dao.checkLogin(username, password);
         HttpSession session = req.getSession();
         if (user != null) { // login success
             System.out.println(user);
             session.setAttribute("user", user);
+            session.setAttribute("message", null);
             nextPage = HOME_PAGE;
         }else {
             String message = "Invalid email/password";

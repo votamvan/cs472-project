@@ -1,13 +1,13 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 // internal import
 import model.*;
 
@@ -30,18 +30,14 @@ public class SignUpServlet extends HttpServlet {
         String fullname = req.getParameter("fullname");
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        try {
-            User u = dao.addUser(fullname, username, password);
-            if (u == null) {
-                req.setAttribute("message", "user exist or insert error");
-                req.getRequestDispatcher(JSP_PAGE).forward(req, resp);
-            }else {
-                resp.sendRedirect(LOGIN_PAGE);
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-            req.setAttribute("message", e.getMessage());
+        User u = dao.addUser(fullname, username, password);
+        if (u == null) {
+            req.setAttribute("message", "user exist or insert error");
             req.getRequestDispatcher(JSP_PAGE).forward(req, resp);
+        }else {
+            HttpSession session = req.getSession();
+            session.setAttribute("message", null);
+            resp.sendRedirect(LOGIN_PAGE);
         }
     }
 }

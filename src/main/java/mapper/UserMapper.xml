@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UserMapper">
+	<!-- SELECT -->
+    <select id="checkLogin" statementType="PREPARED" resultType="model.User" timeout="20">
+        SELECT * FROM users WHERE username = #{username} and password = #{password} LIMIT 1;
+    </select>
+    <select id="checkUserExist" statementType="PREPARED" resultType="model.User" timeout="20">
+        SELECT * FROM users WHERE username = #{username} LIMIT 1;
+    </select>
+	<!-- INSERT -->
+	<insert id="addUser" statementType="PREPARED" keyProperty="id" useGeneratedKeys="true" timeout="20">
+		INSERT INTO users (username, password, fullname)
+		VALUES (#{user.username}, #{user.password}, #{user.fullname});
+	</insert>
+    <!-- UPDATE -->
+    <update id="updateUser" statementType="PREPARED" timeout="20">
+        UPDATE users SET fullname = #{user.fullname}, password = #{user.password} WHERE id = #{user.id}";
+    </update>
+    <!-- DELETE -->
+    <delete id="deleteUser" statementType="PREPARED" timeout="20">
+        DELETE FROM users WHERE id = #{id}";
+    </delete>
+</mapper>

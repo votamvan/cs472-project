@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ProductMapper">
+	<!-- SELECT -->
+    <select id="getAllProducts" statementType="PREPARED" resultType="model.Product" timeout="20">
+        SELECT * FROM products;
+    </select>
+    <select id="getProductsById" statementType="PREPARED" resultType="model.Product" timeout="20">
+        SELECT * FROM products WHERE id = #{id} LIMIT 1;
+    </select>
+	<!-- INSERT -->
+
+    <!-- UPDATE -->
+
+    <!-- DELETE -->
+    <delete id="deleteProduct" statementType="PREPARED" timeout="20">
+        DELETE FROM products WHERE id = #{id}";
+    </delete>
+</mapper>
