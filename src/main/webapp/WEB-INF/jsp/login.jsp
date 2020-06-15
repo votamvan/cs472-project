@@ -48,7 +48,7 @@
                             <label for="password">Password</label>
                         </div>                    
                         <div class="col-lg-9 col-md-9">
-                            <input type="password" placeholder="********" id="password"/>
+                            <input type="password" placeholder="********" id="password" name="password"/>
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <input type="checkbox" id="remember" name="remember" <c:if test = "${cookie.username != null}">checked</c:if>/>

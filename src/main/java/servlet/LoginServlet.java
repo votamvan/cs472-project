@@ -70,21 +70,22 @@ public class LoginServlet extends HttpServlet {
     private String handleLogin(HttpServletRequest req, HttpServletResponse resp){
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        String nextPage = LOGIN_PAGE;
+        System.out.println(username + "|" + password);
+        String nextPage = "/login";
         User user = null;
         try {
             user = new UserDAO().checkLogin(username, password);
         }catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        HttpSession session = req.getSession();
         if (user != null) { // login success
             System.out.println(user);
-            HttpSession session = req.getSession();
             session.setAttribute("user", user);
             nextPage = HOME_PAGE;
         }else {
             String message = "Invalid email/password";
-            req.setAttribute("message", message);
+            session.setAttribute("message", message);
             System.out.println(message);
         }
         return nextPage;
