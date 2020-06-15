@@ -23,7 +23,7 @@
                             </div>
                             <ul>
                                 <c:forEach var="genre" items="${ProductDAO.allGenres}">
-                                    <li><a href="/?genre=${genre}">${genre}</a></li>
+                                    <li><a href="/shop?genre=${genre}">${genre}</a></li>
                                 </c:forEach> 
                             </ul>
                         </div>
@@ -31,12 +31,12 @@
                     <div class="col-lg-9">
                         <div class="hero__search">
                             <div class="hero__search__form">
-                                <form action="#">
+                                <form action="shop">
                                     <div class="hero__search__categories">
                                         All Categories
                                         <span class="arrow_carrot-down"></span>
                                     </div>
-                                    <input type="text" placeholder="What do yo u need?">
+                                    <input type="text" name="criteria" placeholder="What do yo u need?">
                                     <button type="submit" class="site-btn">SEARCH</button>
                                 </form>
                             </div>
@@ -71,27 +71,27 @@
                     <div class="categories__slider owl-carousel">
                         <div class="col-lg-3">
                             <div class="categories__item set-bg" data-setbg="../resources/img/categories/cat-1.jpg">
-                                <h5><a href="#">Horror</a></h5>
+                                <h5><a href="shop?genre=Horror">Horror</a></h5>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="categories__item set-bg" data-setbg="../resources/img/categories/cat-2.jpg">
-                                <h5><a href="#">Action</a></h5>
+                                <h5><a href="shop?genre=Action">Action</a></h5>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="categories__item set-bg" data-setbg="../resources/img/categories/cat-3.jpg">
-                                <h5><a href="#">Family</a></h5>
+                                <h5><a href="shop?genre=Family">Family</a></h5>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="categories__item set-bg" data-setbg="../resources/img/categories/cat-4.jpg">
-                                <h5><a href="#">Animation</a></h5>
+                                <h5><a href="shop?genre=Animation">Animation</a></h5>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="categories__item set-bg" data-setbg="../resources/img/categories/cat-5.jpg">
-                                <h5><a href="#">Science Fiction</a></h5>
+                                <h5><a href="shop?genre=Science">Science Fiction</a></h5>
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#">${fn:substring(product.title, 0, 35)}</a></h6>
+                                    <h6><a href="product?id=${product.id}">${fn:substring(product.title, 0, 35)}</a></h6>
                                     <h5><fmt:formatNumber value="${product.price}" type="currency"/></h5>
                                 </div>
                             </div>

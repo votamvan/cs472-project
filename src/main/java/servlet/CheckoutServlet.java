@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 public class CheckoutServlet extends HttpServlet{
     private static final long serialVersionUID = 1L;
     String JSP_PAGE = "/WEB-INF/jsp/checkout.jsp";
-    String THANK_PAGE = "/thankyou";
+    String THANK_PAGE = "thankyou";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException{

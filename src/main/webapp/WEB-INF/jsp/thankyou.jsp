@@ -4,9 +4,6 @@
 <%@taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <fmt:setLocale value="en_US"/>
-<c:if test="${sessionScope.cart == null}">
-	<c:redirect url="/"/>
-</c:if>
 <c:if test="${sessionScope.user == null}">
 	<c:redirect url="login"/>
 </c:if>
@@ -44,7 +41,7 @@
                             </c:if>
                         </div>
                         <div class="col-lg-12 text-center">
-                            <p>Your confirmation id of your order is 8888PNKME3333EEEEddddPPPPP</p>
+                            <p>Thank you for visiting us and making your first purchase! We’re glad that you found what you were looking for. It is our goal that you are always happy with what you bought from us, so please let us know if your buying experience was anything short of excellent. We look forward to seeing you again. Have a great day!</p>
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,8 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="shoping__product">Products</th>
+                                        <th></th>
+                                        <th class="shoping__product">Movie</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
                                         <th>Total</th>
@@ -51,8 +52,11 @@
                                         <c:set var="iTotal" value="${item.product.price*item.quantity}" />
 			                            <c:set var="total" value="${total + iTotal}" />
                                         <tr>
+                                            <td class="shoping__cart__view">
+                                                <a href="product?id=${item.product.id}">View</a>
+                                            </td>
                                             <td class="shoping__cart__item">
-                                                <img src="${item.product.poster_path}" alt="" width="100px" height="100px">
+                                                <img src="${item.product.poster_path}" alt="${item.product.title}" width="100px" height="100px">
                                                 <h5>${item.product.title}</h5>
                                             </td>
                                             <td class="shoping__cart__price">
