@@ -16,14 +16,17 @@ public class ProductDAO {
     public Product[] getAllProducts(){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         ProductMapper mapper = session.getMapper(ProductMapper.class);
-        List<Product> products = mapper.getAllProducts(); 
+        List<Product> products = mapper.getAllProducts();
+        session.close();
         Product[] out = new Product[products.size()];
         return products.toArray(out);
     }
     public Product getProductsById(int id){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         ProductMapper mapper = session.getMapper(ProductMapper.class);
-        return mapper.getProductsById(id);
+        Product p = mapper.getProductsById(id);
+        session.close();
+        return p;
     }
     public static void main(String[] args){
         ProductDAO dao = new ProductDAO();
