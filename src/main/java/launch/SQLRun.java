@@ -21,9 +21,9 @@ public class SQLRun {
         final String sql[] = {
                 // table users
                 "CREATE TABLE IF NOT EXISTS users (id integer PRIMARY KEY AUTOINCREMENT,"
-                        + "fullname text NOT NULL, username text NOT NULL, password text NOT NULL);",
-                "INSERT INTO users VALUES (1, 'Admin User', 'admin', '123456');",
-                "INSERT INTO users VALUES (2, 'John Smith', 'smith', '123456');",
+                + "fullname text NOT NULL, username text NOT NULL, password text NOT NULL, role text);",
+                "INSERT INTO users VALUES (1, 'Admin User', 'admin', '123456', 'admin');",
+                "INSERT INTO users VALUES (2, 'John Smith', 'smith', '123456', 'user');",
                 // table products
                 "CREATE TABLE IF NOT EXISTS products (id integer PRIMARY KEY AUTOINCREMENT,"
                         + "title text NOT NULL, overview text NOT NULL, price text NOT NULL,"

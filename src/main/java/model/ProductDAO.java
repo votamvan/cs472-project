@@ -19,7 +19,7 @@ public class ProductDAO {
     public Product[] getProductsByCriteria(){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         ProductMapper mapper = session.getMapper(ProductMapper.class);
-        List<Product> _products = mapper.getAllProducts();    
+        List<Product> _products = mapper.getAllProducts();
         session.close();
         //filter by criteria
         List<Product> products = new java.util.ArrayList<Product>();
