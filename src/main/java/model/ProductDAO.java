@@ -7,6 +7,44 @@ import utils.MyBatisUtil;
 
 
 public class ProductDAO {
+
+    private String criteria;
+    public String getCriteria(){
+        return criteria;
+    }
+    public void setCriteria(String criteria){
+        this.criteria = criteria;
+    }
+
+    public Product[] getProductsByCriteria(){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        ProductMapper mapper = session.getMapper(ProductMapper.class);
+        List<Product> _products = mapper.getAllProducts();    
+        session.close();
+        //filter by criteria
+        List<Product> products = new java.util.ArrayList<Product>();
+        if(criteria != null && criteria != ""){
+            //price
+            //TODO
+
+            //latest
+            //TODO
+
+            //by genre
+            for(Product p: _products){
+                if(p.getGenres().toUpperCase().contains(criteria.toUpperCase())){
+                    products.add(p);
+                }
+            }
+        }
+        Product[] out = new Product[products.size()];
+        return products.toArray(out);
+    }
+
+    public String[] getAllGenres(){
+        return new String [] {"Adventure","Action","Animation","Comedy","Crime","Drama","Family","Fantasy","Horror","Mystery","Romance","Science Fiction","Thriller"};
+    }
+
     public Product[] getAllProducts(){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         ProductMapper mapper = session.getMapper(ProductMapper.class);

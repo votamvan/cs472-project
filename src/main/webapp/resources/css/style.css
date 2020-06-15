@@ -2118,7 +2118,7 @@ ol {
 	color: #dd2222;
 }
 
-.checkout__input input {
+.checkout__input input, .checkout__textarea textarea{
 	width: 100%;
 	height: 46px;
 	border: 1px solid #ebebeb;
@@ -2126,6 +2126,10 @@ ol {
 	font-size: 16px;
 	color: #b2b2b2;
 	border-radius: 4px;
+}
+
+.checkout__textarea textarea{
+	height: 246px;
 }
 
 .checkout__input input.checkout__input__add {
@@ -2227,6 +2231,14 @@ ol {
 .checkout__order ul li span {
 	font-weight: 700;
 	float: right;
+}
+
+.checkout__order ul li label {
+	width: 32%;
+}
+
+.checkout__order ul li input, .checkout__order ul li select{
+	height: 20px;
 }
 
 .checkout__order .checkout__order__subtotal {
@@ -2903,17 +2915,22 @@ ol {
   Contact Form
 -----------------------*/
 
-.contact__form__title, .login__form__title, .signup__form__title{
+.contact__form__title, .login__form__title, .signup__form__title, .confirm__form__title{
 	margin-bottom: 50px;
 	text-align: center;
 }
 
-.contact__form__title h2, .login__form__title h2, .signup__form__title h2{
+.contact__form__title h2, .login__form__title h2, .signup__form__title h2, .confirm__form__title h2 {
 	color: #1c1c1c;
 	font-weight: 700;
 }
 
-.contact-form, .login-form, .login-form {
+.confirm__form__title h2 {
+	text-align: center;
+	padding: 20px;
+}
+
+.contact-form, .login-form, .login-form, .confirm-form {
 	padding-top: 80px;
 	padding-bottom: 80px;
 }

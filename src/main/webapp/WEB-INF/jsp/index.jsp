@@ -5,7 +5,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page import="model.*" %>
 <fmt:setLocale value="en_US"/>
-
+<jsp:useBean id= "ProductDAO" scope= "page"   class= "model.ProductDAO" />  
 <t:masterPage>
     <jsp:attribute name="title">
         MIU-DVD SHOP - Home
@@ -22,19 +22,9 @@
                                 <span>All categories</span>
                             </div>
                             <ul>
-                                <li><a href="#">Adventure</a></li>
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Animation</a></li>
-                                <li><a href="#">Comedy</a></li>
-                                <li><a href="#">Crime</a></li>
-                                <li><a href="#">Drama</a></li>
-                                <li><a href="#">Family</a></li>
-                                <li><a href="#">Fantasy</a></li>
-                                <li><a href="#">Horror</a></li>
-                                <li><a href="#">Mystery</a></li>
-                                <li><a href="#">Romance</a></li>
-                                <li><a href="#">Science Fiction</a></li>
-                                <li><a href="#">Thriller</a></li>
+                                <c:forEach var="genre" items="${ProductDAO.allGenres}">
+                                    <li><a href="/?genre=${genre}">${genre}</a></li>
+                                </c:forEach> 
                             </ul>
                         </div>
                     </div>
@@ -111,7 +101,6 @@
         <!-- Categories Section End -->
 
         <!-- Featured Section Begin -->
-        <jsp:useBean id= "ProductDAO" scope= "page"   class= "model.ProductDAO" />  
         <section class="featured spad">
             <div class="container">
                 <div class="row">
@@ -148,7 +137,7 @@
                                     <ul class="featured__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="<c:url value='cart?&action=buy&id=${product.id}' />"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
@@ -195,7 +184,7 @@
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${product.poster_path}" alt="">
+                                                <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>${fn:substring(product.title, 0, 35)}</h6>
@@ -209,7 +198,7 @@
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${product.poster_path}" alt="">
+                                                <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>${fn:substring(product.title, 0, 35)}</h6>
@@ -230,7 +219,7 @@
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${product.poster_path}" alt="">
+                                                <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>${fn:substring(product.title, 0, 35)}</h6>
@@ -244,7 +233,7 @@
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${product.poster_path}" alt="">
+                                                <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>${fn:substring(product.title, 0, 35)}</h6>
@@ -265,7 +254,7 @@
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${product.poster_path}" alt="">
+                                                <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>${fn:substring(product.title, 0, 35)}</h6>
@@ -279,7 +268,7 @@
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${product.poster_path}" alt="">
+                                                <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>${fn:substring(product.title, 0, 35)}</h6>

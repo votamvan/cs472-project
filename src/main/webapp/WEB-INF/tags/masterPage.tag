@@ -62,12 +62,11 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="shop">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="shop-details">Shop Details</a></li>
-                        <li><a href="shoping-cart">Shoping Cart</a></li>
+                        <li><a href="cart">Shoping Cart</a></li>
                         <li><a href="checkout">Check Out</a></li>
                         <li><a href="#">Blog Details</a></li>
                     </ul>
@@ -144,11 +143,10 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="/">Home</a></li>
-                            <li><a href="shop-grid">Shop</a></li>
+                            <li><a href="shop">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="shop-details">Shop Details</a></li>
-                                    <li><a href="shoping-cart">Shoping Cart</a></li>
+                                    <li><a href="cart">Shoping Cart</a></li>
                                     <li><a href="checkout">Check Out</a></li>
                                     <li><a href="#">Blog Details</a></li>
                                 </ul>

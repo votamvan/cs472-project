@@ -4,15 +4,39 @@
   <welcome-file-list>
     <welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
   </welcome-file-list>
+
+
+  <!-- product -->
+  <servlet>
+    <servlet-name>product</servlet-name>
+    <jsp-file>/WEB-INF/jsp/index.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>product</servlet-name>
+    <url-pattern>/product</url-pattern>
+  </servlet-mapping>
+
+  <!-- shop -->
+  <servlet>
+    <servlet-name>shop</servlet-name>
+    <jsp-file>/WEB-INF/jsp/shop.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>shop</servlet-name>
+    <url-pattern>/shop</url-pattern>
+  </servlet-mapping>
+
+  <!-- thankyou -->
   <servlet>
     <servlet-name>thankyou</servlet-name>
-    <jsp-file>/WEB-INF/thankyou.jsp</jsp-file>
+    <jsp-file>/WEB-INF/jsp/thankyou.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>thankyou</servlet-name>
     <url-pattern>/thankyou</url-pattern>
   </servlet-mapping>
 
+  <!-- contact -->
   <servlet>
     <servlet-name>contact</servlet-name>
     <jsp-file>/WEB-INF/jsp/contact.jsp</jsp-file>
@@ -22,6 +46,7 @@
     <url-pattern>/contact</url-pattern>
   </servlet-mapping>
   
+  <!-- error -->
   <error-page>
 		<exception-type>java.lang.Throwable</exception-type>
 		<location>/WEB-INF/jsp/error.jsp</location>

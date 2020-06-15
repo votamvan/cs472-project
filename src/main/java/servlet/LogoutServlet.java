@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 )
 public class LogoutServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private String LOGIN_PAGE = "login.jsp";
+    private String LOGIN_PAGE = "login";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
