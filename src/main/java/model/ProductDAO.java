@@ -60,6 +60,30 @@ public class ProductDAO {
         session.close();
         return p;
     }
+    public Product addProduct(Product product){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        ProductMapper mapper = session.getMapper(ProductMapper.class);
+        mapper.addProduct(product);
+        session.commit();
+        session.close();
+        return product;
+    }
+    public Integer updateProduct(Product product){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        ProductMapper mapper = session.getMapper(ProductMapper.class);
+        Integer ret = mapper.updateProduct(product);
+        session.commit();
+        session.close();
+        return ret;
+    }
+    public Integer deleteProduct(Integer id){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        ProductMapper mapper = session.getMapper(ProductMapper.class);
+        Integer ret = mapper.deleteProduct(id);
+        session.commit();
+        session.close();
+        return ret;
+    }
     public static void main(String[] args){
         ProductDAO dao = new ProductDAO();
         System.out.println("===== getAllProducts =====");
@@ -68,5 +92,12 @@ public class ProductDAO {
             System.out.println(products[i]);
         System.out.println("===== getProductsById =====");
         System.out.println(dao.getProductsById(10));
+        System.out.println("===== insert/update/delete product =====");
+        Product product = new Product("aaaa", "aaaa", "aaaa", "aaaa", "aaaa", "aaaa", "aaaa");
+        dao.addProduct(product);
+        System.out.println(product);
+        product.setTitle("bbbb");
+        dao.updateProduct(product);
+        dao.deleteProduct(product.getId());
     }
 }

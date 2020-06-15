@@ -15,4 +15,14 @@ public class Product {
 	private String price;
 	// extra data
 	private String imdb_id;
+	Product(String title, String overview, String release_date, 
+		String poster_path, String genres, String price, String imdb_id){
+		this.title = title;
+		this.overview = overview;
+		this.release_date = release_date;
+		this.poster_path = poster_path;
+		this.genres = genres;
+		this.price = price;
+		this.imdb_id = imdb_id;
+	};
 }

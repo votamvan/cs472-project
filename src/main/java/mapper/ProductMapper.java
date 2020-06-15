@@ -7,4 +7,7 @@ import model.Product;
 public interface ProductMapper {
     public List<Product> getAllProducts();
     public Product getProductsById(@Param("id") Integer id);
+    public Integer addProduct(@Param("product") Product product);
+    public Integer updateProduct(@Param("product") Product product);
+    public Integer deleteProduct(@Param("id") Integer id);
 }

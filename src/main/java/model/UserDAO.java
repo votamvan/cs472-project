@@ -35,10 +35,29 @@ public class UserDAO {
         }
         return user;
     }
+    public Integer updateUser(User user){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
+        Integer ret = mapper.updateUser(user);
+        session.commit();
+        session.close();
+        return ret;
+    }
+    public Integer deleteUser(Integer id){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
+        Integer ret = mapper.deleteUser(id);
+        session.commit();
+        session.close();
+        return ret;
+    }
     public static void main(String[] args){
         UserDAO dao = new UserDAO();
         System.out.println(dao.checkLogin("admin", "123456"));
-        System.out.println(dao.checkLogin("admin", "1234"));
-        System.out.println(dao.addUser("admin1", "admin1", "1234"));
+        User user = dao.addUser("admin1", "admin1", "1234");
+        System.out.println(user);
+        user.setFullname("fullname admin2");
+        dao.updateUser(user);
+        dao.deleteUser(user.getId());
     }
 }

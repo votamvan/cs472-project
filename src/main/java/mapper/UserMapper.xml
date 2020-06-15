@@ -15,10 +15,10 @@
 	</insert>
     <!-- UPDATE -->
     <update id="updateUser" statementType="PREPARED" timeout="20">
-        UPDATE users SET fullname = #{user.fullname}, password = #{user.password} WHERE id = #{user.id}";
+        UPDATE users SET fullname = #{user.fullname}, password = #{user.password} WHERE id = #{user.id};
     </update>
     <!-- DELETE -->
     <delete id="deleteUser" statementType="PREPARED" timeout="20">
-        DELETE FROM users WHERE id = #{id}";
+        DELETE FROM users WHERE id = #{id};
     </delete>
 </mapper>

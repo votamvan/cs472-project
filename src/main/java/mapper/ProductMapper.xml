@@ -9,11 +9,21 @@
         SELECT * FROM products WHERE id = #{id} LIMIT 1;
     </select>
 	<!-- INSERT -->
-
+	<insert id="addProduct" statementType="PREPARED" keyProperty="id" useGeneratedKeys="true" timeout="20">
+		INSERT INTO products (title, overview, price, genres, release_date, poster_path, imdb_id)
+		VALUES (#{product.title}, #{product.overview}, #{product.price}, #{product.genres},
+                #{product.release_date}, #{product.poster_path}, #{product.imdb_id});
+	</insert>
     <!-- UPDATE -->
-
+    <update id="updateProduct" statementType="PREPARED" timeout="20">
+        UPDATE products 
+        SET title = #{product.title}, overview = #{product.overview}, price = #{product.price},
+            genres = #{product.genres}, release_date = #{product.release_date}, 
+            poster_path = #{product.poster_path}, imdb_id = #{product.imdb_id}
+        WHERE id = #{product.id};
+    </update>
     <!-- DELETE -->
     <delete id="deleteProduct" statementType="PREPARED" timeout="20">
-        DELETE FROM products WHERE id = #{id}";
+        DELETE FROM products WHERE id = #{id};
     </delete>
 </mapper>
