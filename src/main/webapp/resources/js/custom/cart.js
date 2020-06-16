@@ -14,7 +14,7 @@
         --------------------- */
         
         $.ajax({
-            'url': 'http://localhost:8080/cart?action=view',
+            'url': 'cart?action=view',
             'type': 'POST',
             'success': function(obj){  
                 $('.fa-shopping-bag + span').html(obj.total);          
@@ -42,6 +42,7 @@
                     'success': function(obj){  
                         if(obj.result == 1){
                             $(tr).remove();
+                            $('.header__cart__price > span').html(formatter.format(obj.cost));     
                             $($('.shoping__checkout li span')[0]).html(formatter.format(obj.cost));  
                             $($('.shoping__checkout li span')[1]).html(formatter.format(obj.cost));  
                         }else{
@@ -82,6 +83,7 @@
                 'type': 'POST',
                 'success': function(obj){  
                     if(obj.result == 1){
+                        $('.header__cart__price > span').html(formatter.format(obj.cost));     
                         $($('.shoping__checkout li span')[0]).html(formatter.format(obj.cost));  
                         $($('.shoping__checkout li span')[1]).html(formatter.format(obj.cost));   
                     }else{
