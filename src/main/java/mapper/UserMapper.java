@@ -1,5 +1,5 @@
 package mapper;
-
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import model.User;
 
@@ -9,4 +9,5 @@ public interface UserMapper {
     public Integer addUser(@Param("user") User user);
     public Integer updateUser(@Param("user") User user);
     public Integer deleteUser(@Param("id") Integer id);
+    public List<User> getAllUsers();
 }

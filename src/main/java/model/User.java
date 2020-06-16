@@ -17,4 +17,11 @@ public class User {
         this.username = username;
         this.password = password;
     }
+    public void reset(){
+        this.id = -1;
+        this.username = null;
+        this.password = null;
+        this.fullname = null;
+        this.role = null;
+    }
 }

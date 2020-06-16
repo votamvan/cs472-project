@@ -4,6 +4,7 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -16,7 +17,6 @@ import model.User;
 @WebFilter("/admin/*")
 public class AuthenticationFilter implements Filter {
     private String LOGIN_PAGE = "../WEB-INF/jsp/admin/login.jsp";
-
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         System.out.println("admin.AuthenticationFilter");

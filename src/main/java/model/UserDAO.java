@@ -1,10 +1,18 @@
 package model;
 
+import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import mapper.UserMapper;
 import utils.MyBatisUtil;
 
 public class UserDAO {
+    public List<User> getAllUsers() {
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
+        List<User> users = mapper.getAllUsers();
+        session.close();
+        return users;
+    }
     public User checkLogin(String username, String password){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         UserMapper mapper = session.getMapper(UserMapper.class);
@@ -33,6 +41,20 @@ public class UserDAO {
         }finally{
             if (session != null) session.close();
         }
+        return user;
+    }
+    public User addUser(User user){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
+        if (mapper.checkUserExist(user.getUsername()) != null){
+            System.out.println("user exist");
+            session.close();
+            return null;
+        }else {
+            mapper.addUser(user);
+        }
+        session.commit();
+        session.close();
         return user;
     }
     public Integer updateUser(User user){

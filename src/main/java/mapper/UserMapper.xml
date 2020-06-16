@@ -8,6 +8,9 @@
     <select id="checkUserExist" statementType="PREPARED" resultType="model.User" timeout="20">
         SELECT * FROM users WHERE username = #{username} LIMIT 1;
     </select>
+    <select id="getAllUsers" statementType="PREPARED" resultType="model.User" timeout="20">
+        SELECT * FROM users;
+    </select>
 	<!-- INSERT -->
 	<insert id="addUser" statementType="PREPARED" keyProperty="id" useGeneratedKeys="true" timeout="20">
 		INSERT INTO users (username, password, fullname, role)
