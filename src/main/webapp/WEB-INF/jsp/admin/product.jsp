@@ -125,7 +125,6 @@ $(function(){
         }
         $("#errmsg").text("");
         var id = data.id;
-        // var row_data = `<tr id="row${id}"><td><img src="${data.poster_path}" width="100px" height="100px"></td>`;
         var row_data = "<tr id=row" + id + ">"
                         + "<td><img src='" + data.poster_path + "' width='100px' height='100px'></td>"
                         + "<td>" + id + "</td>"

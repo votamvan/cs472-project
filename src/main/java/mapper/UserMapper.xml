@@ -18,8 +18,8 @@
 	</insert>
     <!-- UPDATE -->
     <update id="updateUser" statementType="PREPARED" timeout="20">
-        UPDATE users SET fullname = #{user.fullname}, password = #{user.password},
-        role = #{user.role} WHERE id = #{user.id};
+        UPDATE users SET fullname = #{user.fullname}, password = #{user.password}, 
+        username = #{user.username}, role = #{user.role} WHERE id = #{user.id};
     </update>
     <!-- DELETE -->
     <delete id="deleteUser" statementType="PREPARED" timeout="20">

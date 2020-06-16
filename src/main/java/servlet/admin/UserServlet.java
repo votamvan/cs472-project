@@ -31,9 +31,18 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        String action = req.getParameter("action");
         String jsonString = req.getParameter("user");
+        System.out.println(action + "|" + jsonString);
         User user = mapper.fromJson(jsonString, User.class);
-        if (dao.addUser(user) == null) user.reset();
+        if (action != null && action.equals("add")){
+            if (dao.addUser(user) == null) user.reset();
+        }else {
+            if (dao.checkUserExist(user))
+                user.reset();
+            else if (dao.updateUser(user) <= 0) 
+                user.reset();
+        }
         resp.getWriter().print(mapper.toJson(user));
     }
     @Override
@@ -41,19 +50,6 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         if (dao.deleteUser(id) > 0)
-            resp.getWriter().print("OK");
-        else
-            resp.getWriter().print("FAIL");
-    }
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        Integer id = Integer.valueOf(req.getParameter("id"));
-        String fullname = req.getParameter("fullname");
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        User user = new User(id, fullname, username, password);
-        if (dao.updateUser(user) > 0)
             resp.getWriter().print("OK");
         else
             resp.getWriter().print("FAIL");

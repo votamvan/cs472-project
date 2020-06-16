@@ -13,6 +13,14 @@ public class UserDAO {
         session.close();
         return users;
     }
+    public boolean checkUserExist(User user){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
+        User user2 = mapper.checkUserExist(user.getUsername());
+        session.close();
+        if (user2 == null) return false;
+        return user2.getId() != user.getId();
+    }
     public User checkLogin(String username, String password){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         UserMapper mapper = session.getMapper(UserMapper.class);
