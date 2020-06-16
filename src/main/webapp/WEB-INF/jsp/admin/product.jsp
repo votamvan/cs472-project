@@ -5,7 +5,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page import="model.*" %>
 <fmt:setLocale value="en_US"/>
-<t:masterPage>
+<t:adminPage>
     <jsp:attribute name="title">
         MIU-DVD SHOP - Admin Home Page
     </jsp:attribute>
@@ -126,11 +126,17 @@ $(function(){
         $("#errmsg").text("");
         var id = data.id;
         // var row_data = `<tr id="row${id}"><td><img src="${data.poster_path}" width="100px" height="100px"></td>`;
-        var row_data = `<tr id="row${id}"><td></td>`;
-        row_data += `<td>${data.title}</td><td>${data.overview}</td>`;
-        row_data += `<td>${data.genres}</td><td>${data.release_date}</td><td>${data.price}</td>`;
-        row_data += `<button id="edit${id}">Edit</button></td>`;
-        row_data += `<button id="del${id}">Delete</button></td></tr>`;
+        var row_data = "<tr id=row" + id + ">"
+                        + "<td><img src='" + data.poster_path + "' width='100px' height='100px'></td>"
+                        + "<td>" + id + "</td>"
+                        + "<td>" + data.title + "</td>"
+                        + "<td>" + data.overview + "</td>"
+                        + "<td>" + data.genres + "</td>"
+                        + "<td>" + data.release_date + "</td>"
+                        + "<td>" + data.price + "</td>"
+                        + "<td><button id=edit" + data.id + " value=" + data.id + ">Edit</button></td>"
+                        + "<td><button id=del" + data.id + " value=" + data.id + ">Delete</button></td>"
+                        + "</tr>";
 		$('#tbl>tbody').append(row_data);
         $("button#del" + id).click(del);
 	}
@@ -147,4 +153,4 @@ $(function(){
 </script>
 <!-- Hero Section End -->
     </jsp:body>
-</t:masterPage>
+</t:adminPage>

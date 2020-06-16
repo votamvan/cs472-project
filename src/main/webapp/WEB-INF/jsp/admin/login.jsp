@@ -2,7 +2,7 @@
 <%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<t:masterPage>
+<t:adminPage>
     <jsp:attribute name="title">
         MIU-DVD SHOP - Admin Login Page
     </jsp:attribute>
@@ -65,4 +65,4 @@
         </div>
         <!-- Login Form End -->
     </jsp:body>
-</t:masterPage>
+</t:adminPage>

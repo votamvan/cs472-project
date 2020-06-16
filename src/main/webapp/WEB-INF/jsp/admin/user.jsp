@@ -5,7 +5,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page import="model.*" %>
 <fmt:setLocale value="en_US"/>
-<t:masterPage>
+<t:adminPage>
     <jsp:attribute name="title">
         MIU-DVD SHOP - Admin Home Page
     </jsp:attribute>
@@ -28,6 +28,27 @@
                 </div>
             </div>
             <div class="col-lg-9">
+                <fieldset>
+                    <div>
+                        <label for="id">Id</label>
+                        <input type="text" id="id" readonly="readonly" placeholder="Id auto-generated"/>
+                    </div>
+                    <div>
+                        <label for="fullname">Fullname</label>
+                        <input type="text" id="fullname" placeholder="Fullname"/></div>
+                    <div>
+                        <label for="username">Username</label> 
+                        <input type="text" id="username" placeholder="Username" />
+                    </div>
+                    <div>
+                        <label for="password">Password</label> 
+                        <input type="password" id="password" placeholder="Password" />
+                    </div>
+                    <div>
+                        <input id="btn_add" type="submit" value="Add user" />
+                    </div>
+                    <span id="errmsg"></span>
+                </fieldset>
                 <table id="tbl">
                     <thead>
                         <tr>
@@ -50,32 +71,10 @@
                         </c:forEach>
                     </tbody>
                 </table>
-                <fieldset>
-                    <div>
-                        <label for="id">Id</label>
-                        <input type="text" id="id" readonly="readonly" placeholder="Id auto-generated"/>
-                    </div>
-                    <div>
-                        <label for="fullname">Fullname</label>
-                        <input type="text" id="fullname" placeholder="Fullname"/></div>
-                    <div>
-                        <label for="username">Username</label> 
-                        <input type="text" id="username" placeholder="Username" />
-                    </div>
-                    <div>
-                        <label for="password">Password</label> 
-                        <input type="password" id="password" placeholder="Password" />
-                    </div>
-                    <div>
-                        <input id="btn_add" type="submit" value="Add user" />
-                    </div>
-                    <span id="errmsg"></span>
-                </fieldset>
             </div>
         </div>
     </div>
 </section>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(function(){
     $('table#tbl button').each(function(index, btn) {
@@ -101,12 +100,16 @@ $(function(){
             return;
         }
         $("#errmsg").text("");
-        var id = data.id;
-        var row_data = `<tr id="row${id}"><td>${data.fullname}</td><td>${data.username}</td><td>${data.username}</td>`;
-        row_data += `<button id="edit${id}">Edit</button></td>`;
-        row_data += `<button id="del${id}">Delete</button></td></tr>`;
-		$('#tbl>tbody').append(row_data);
-        $("button#del" + id).click(del);
+        var row_data = "<tr id=" + data.id + ">"
+                       + "<td>" + data.id + "</td>"
+                       + "<td>" + data.fullname + "</td>"
+                       + "<td>" + data.username + "</td>"
+                       + "<td>" + data.password + "</td>"
+                       + "<td><button id=edit" + data.id + " value=" + data.id + ">Edit</button></td>"
+                       + "<td><button id=del" + data.id + " value=" + data.id + ">Delete</button></td>"
+                       + "</tr>";
+		$('#tbl tr:last').after(row_data);
+        $("button#del" + data.id).click(del);
 	}
     function del(){
         var id = this.value;
@@ -121,4 +124,4 @@ $(function(){
 </script>
 <!-- Hero Section End -->
     </jsp:body>
-</t:masterPage>
+</t:adminPage>

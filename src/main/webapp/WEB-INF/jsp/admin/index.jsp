@@ -5,7 +5,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page import="model.*" %>
 <fmt:setLocale value="en_US"/>
-<t:masterPage>
+<t:adminPage>
     <jsp:attribute name="title">
         MIU-DVD SHOP - Admin Home Page 
     </jsp:attribute>
@@ -63,4 +63,4 @@
 </section>
 <!-- Hero Section End -->
     </jsp:body>
-</t:masterPage>
+</t:adminPage>
