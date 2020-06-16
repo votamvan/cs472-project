@@ -69,27 +69,25 @@
                 <table id="tbl">
                     <thead>
                         <tr>
+                            <th>Poster</th>
                             <th>Id</th>
-                            <th>IMDB Id</th>
                             <th>Title</th>
                             <th>Overview</th>
                             <th>Genres</th>
                             <th>Release Date</th>
-                            <th>Poster</th>
                             <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${products}" var="item">
                             <tr id="row${item.id}">
+                                <td><img src="${item.poster_path}" width="100px" height="100px"></td>
                                 <td><c:out value="${item.id}" /></td>
-                                <td><c:out value="${item.imdb_id}" /></td>
                                 <td><c:out value="${item.title}" /></td>
                                 <td><c:out value="${item.overview}" /></td>
                                 <td><c:out value="${item.genres}" /></td>
                                 <td><c:out value="${item.release_date}" /></td>
                                 <td><c:out value="${item.price}" /></td>
-                                <td><img src="${item.poster_path}" width="120"></td>
                                 <td><button id="edit${item.id}" value="${item.id}">Edit</button></td>
                                 <td><button id="del${item.id}" value="${item.id}">Delete</button></td>
                             </tr>
@@ -111,15 +109,14 @@ $(function(){
     });
 	$('#btn_add').click(add);
 	function add(){
-        var imdb_id = $('#imdb_id').val();
         var title = $('#title').val();
         var overview = $('#overview').val();
         var genres = $('#genres').val();
         var release_date = $('#release_date').val();
 		var poster_path = $('#poster_path').val();
 		var price = $('#price').val();
-		var item = {imdb_id:imdb_id, title:title, overview:overview, 
-            genres:genres, release_date:release_date, poster_path:poster_path, price:price};
+		var item = {title:title, overview:overview, genres:genres, 
+                    release_date:release_date, poster_path:poster_path, price:price};
 		$.post('/admin/product',{product: JSON.stringify(item)}, processData, "json")
 	}
 	function processData(data){
@@ -130,9 +127,10 @@ $(function(){
         }
         $("#errmsg").text("");
         var id = data.id;
-        var row_data = `<tr id=row"${id}"><td>${data.imdb_id}</td><td>${data.title}</td><td>${data.overview}</td>`;
+        
+        var row_data = `<tr id=row"${id}"><td><img src="${data.poster_path}" width="100px" height="100px"></td>`;
+        row_data += `<td>${data.title}</td><td>${data.overview}</td>`;
         row_data += `<td>${data.genres}</td><td>${data.release_date}</td><td>${data.price}</td>`;
-        row_data += `<td><img src="${data.poster_path}" width="240"></td>`;
         row_data += `<button id="edit${id}">Edit</button></td>`;
         row_data += `<button id="del${id}">Delete</button></td></tr>`;
 		$('#tbl>tbody').append(row_data);
