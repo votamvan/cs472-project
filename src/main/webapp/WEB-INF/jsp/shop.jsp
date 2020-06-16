@@ -187,7 +187,7 @@
                             </div>
                             <div class="sidebar__item">
                                 <div class="latest-product__text">
-                                    <h4>Latest Products</h4>
+                                    <h4>Latest Movies</h4>
                                     <div class="latest-product__slider owl-carousel">
                                         <div class="latest-prdouct__slider__item">
                                             <c:forEach var="product" items="${ProductDAO.allProducts}" begin="0" end="2">
@@ -205,6 +205,76 @@
                                         </div>
                                         <div class="latest-prdouct__slider__item">
                                             <c:forEach var="product" items="${ProductDAO.allProducts}" begin="3" end="5">
+                                                <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
+                                                <a href="product?id=${product.id}" class="latest-product__item">
+                                                    <div class="latest-product__item__pic">
+                                                        <img src="${product.poster_path}" alt="${product.title}">
+                                                    </div>
+                                                    <div class="latest-product__item__text">
+                                                        <h6>${fn:substring(product.title, 0, 35)}</h6>
+                                                        <span><fmt:formatNumber value="${product.price}" type="currency"/></span>
+                                                    </div>
+                                                </a>
+                                            </c:forEach>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="sidebar__item">
+                                <div class="latest-product__text">
+                                    <h4>Top Rated Movies</h4>
+                                    <div class="latest-product__slider owl-carousel">
+                                        <div class="latest-prdouct__slider__item">
+                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="10" end="12">
+                                                <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
+                                                <a href="product?id=${product.id}" class="latest-product__item">
+                                                    <div class="latest-product__item__pic">
+                                                        <img src="${product.poster_path}" alt="${product.title}">
+                                                    </div>
+                                                    <div class="latest-product__item__text">
+                                                        <h6>${fn:substring(product.title, 0, 35)}</h6>
+                                                        <span><fmt:formatNumber value="${product.price}" type="currency"/></span>
+                                                    </div>
+                                                </a>
+                                            </c:forEach>
+                                        </div>
+                                        <div class="latest-prdouct__slider__item">
+                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="13" end="15">
+                                                <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
+                                                <a href="product?id=${product.id}" class="latest-product__item">
+                                                    <div class="latest-product__item__pic">
+                                                        <img src="${product.poster_path}" alt="${product.title}">
+                                                    </div>
+                                                    <div class="latest-product__item__text">
+                                                        <h6>${fn:substring(product.title, 0, 35)}</h6>
+                                                        <span><fmt:formatNumber value="${product.price}" type="currency"/></span>
+                                                    </div>
+                                                </a>
+                                            </c:forEach>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="sidebar__item">
+                                <div class="latest-product__text">
+                                    <h4>Review Movies</h4>
+                                    <div class="latest-product__slider owl-carousel">
+                                        <div class="latest-prdouct__slider__item">
+                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="20" end="22">
+                                                <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
+                                                <a href="product?id=${product.id}" class="latest-product__item">
+                                                    <div class="latest-product__item__pic">
+                                                        <img src="${product.poster_path}" alt="${product.title}">
+                                                    </div>
+                                                    <div class="latest-product__item__text">
+                                                        <h6>${fn:substring(product.title, 0, 35)}</h6>
+                                                        <span><fmt:formatNumber value="${product.price}" type="currency"/></span>
+                                                    </div>
+                                                </a>
+                                            </c:forEach>
+                                        </div>
+                                        <div class="latest-prdouct__slider__item">
+                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="23" end="25">
                                                 <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
                                                 <a href="product?id=${product.id}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">

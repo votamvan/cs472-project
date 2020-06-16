@@ -66,14 +66,15 @@
             <ul>
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="shop">Shop</a></li>
-                <li><a href="#">Pages</a>
+                <!--<li><a href="#">Services</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="cart">Shoping Cart</a></li>
-                        <li><a href="checkout">Check Out</a></li>
-                        <li><a href="#">Blog Details</a></li>
+                        <li><a href="#">DVD Restore</a></li>
+                        <li><a href="#">VIP Member</a></li>
+                        <li><a href="#">Packing & Shipping</a></li>
                     </ul>
-                </li>
-                <li><a href="#">Blog</a></li>
+                </li>-->
+                <li><a href="cart">Your Cart</a></li>
+                <li><a href="checkout">Check Out</a></li>
                 <li><a href="contact">Contact</a></li>
             </ul>
         </nav>
@@ -146,14 +147,15 @@
                         <ul>
                             <li class="active"><a href="/">Home</a></li>
                             <li><a href="shop">Shop</a></li>
-                            <li><a href="#">Pages</a>
+                            <!--<li><a href="#">Services</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="cart">Shoping Cart</a></li>
-                                    <li><a href="checkout">Check Out</a></li>
-                                    <li><a href="#">Blog Details</a></li>
+                                    <li><a href="#">DVD Restore</a></li>
+                                    <li><a href="#">VIP Member</a></li>
+                                    <li><a href="#">Packing & Shipping</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="#">Blog</a></li>
+                            </li>-->
+                            <li><a href="cart">Your Cart</a></li>
+                            <li><a href="checkout">Check Out</a></li>
                             <li><a href="contact">Contact</a></li>
                         </ul>
                     </nav>

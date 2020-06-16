@@ -106,7 +106,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title">
-                            <h2>Featured Product</h2>
+                            <h2>Featured Movie</h2>
                         </div>
                         <div class="featured__controls">
                             <ul>
@@ -177,12 +177,12 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="latest-product__text">
-                            <h4>Latest Products</h4>
+                            <h4>Latest Movies</h4>
                             <div class="latest-product__slider owl-carousel">
                                 <div class="latest-prdouct__slider__item">
                                     <c:forEach var="product" items="${ProductDAO.allProducts}" begin="0" end="2">
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
-                                        <a href="#" class="latest-product__item">
+                                        <a href="product?id=${product.id}" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
@@ -196,7 +196,7 @@
                                 <div class="latest-prdouct__slider__item">
                                     <c:forEach var="product" items="${ProductDAO.allProducts}" begin="3" end="5">
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
-                                        <a href="#" class="latest-product__item">
+                                        <a href="product?id=${product.id}" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
@@ -212,12 +212,12 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="latest-product__text">
-                            <h4>Top Rated Products</h4>
+                            <h4>Top Rated Movies</h4>
                             <div class="latest-product__slider owl-carousel">
                                 <div class="latest-prdouct__slider__item">
                                     <c:forEach var="product" items="${ProductDAO.allProducts}" begin="6" end="8">
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
-                                        <a href="#" class="latest-product__item">
+                                        <a href="product?id=${product.id}" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
@@ -231,7 +231,7 @@
                                 <div class="latest-prdouct__slider__item">
                                     <c:forEach var="product" items="${ProductDAO.allProducts}" begin="9" end="11">
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
-                                        <a href="#" class="latest-product__item">
+                                        <a href="product?id=${product.id}" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
@@ -247,12 +247,12 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="latest-product__text">
-                            <h4>Review Products</h4>
+                            <h4>Review Movies</h4>
                             <div class="latest-product__slider owl-carousel">
                                 <div class="latest-prdouct__slider__item">
                                     <c:forEach var="product" items="${ProductDAO.allProducts}" begin="12" end="14">
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
-                                        <a href="#" class="latest-product__item">
+                                        <a href="product?id=${product.id}" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
@@ -266,7 +266,7 @@
                                 <div class="latest-prdouct__slider__item">
                                     <c:forEach var="product" items="${ProductDAO.allProducts}" begin="15" end="17">
                                         <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
-                                        <a href="#" class="latest-product__item">
+                                        <a href="product?id=${product.id}" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="${product.poster_path}" alt="${product.title}">
                                             </div>
@@ -283,68 +283,7 @@
                 </div>
             </div>
         </section>
-        <!-- Latest Product Section End -->
-
-        <!-- Blog Section Begin -->
-        <section class="from-blog spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title from-blog__title">
-                            <h2>From The Blog</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="../resources/img/blog/blog-1.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="../resources/img/blog/blog-2.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="../resources/img/blog/blog-3.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Visit the clean farm in the US</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Blog Section End -->
+        <!-- Latest Product Section End -->        
         <script src="../resources/js/custom/index.js"></script>
     </jsp:body>
 </t:masterPage>
