@@ -35,6 +35,10 @@ public class UserServlet extends HttpServlet {
         String jsonString = req.getParameter("user");
         System.out.println(action + "|" + jsonString);
         User user = mapper.fromJson(jsonString, User.class);
+        if (user == null) {
+            resp.getWriter().print(mapper.toJson(user));
+            return;
+        }
         if (action != null && action.equals("add")){
             if (dao.addUser(user) == null) user.reset();
         }else {

@@ -30,9 +30,19 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        String action = req.getParameter("action");
         String jsonString = req.getParameter("product");
+        System.out.println(action + "|" + jsonString);
         Product product = mapper.fromJson(jsonString, Product.class);
-        if (dao.addProduct(product) == null) product.reset();
+        if (product == null) {
+            resp.getWriter().print(mapper.toJson(product));
+            return;
+        }
+        if (action != null && action.equals("add")){
+            if (dao.addProduct(product) == null) product.reset();
+        }else {
+            if (dao.updateProduct(product) <= 0) product.reset();
+        }
         resp.getWriter().print(mapper.toJson(product));
     }
     @Override
@@ -40,16 +50,6 @@ public class ProductServlet extends HttpServlet {
             throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         if (dao.deleteProduct(id) > 0)
-            resp.getWriter().print("OK");
-        else
-            resp.getWriter().print("FAIL");
-    }
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        String jsonString = req.getParameter("product");
-        Product product = mapper.fromJson(jsonString, Product.class);
-        if (dao.updateProduct(product) > 0)
             resp.getWriter().print("OK");
         else
             resp.getWriter().print("FAIL");
