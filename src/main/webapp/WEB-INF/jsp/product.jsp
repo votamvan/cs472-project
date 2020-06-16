@@ -122,7 +122,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="cart?&action=buy&id=${product.id}" class="primary-btn">ADD TO CARD</a>
+                            <a href="cart?&action=add&id=${product.id}" class="primary-btn">ADD TO CARD</a>
                             <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                             <ul>
                                 <li><b>Availability</b> <span>In Stock</span></li>
@@ -298,6 +298,7 @@
                 </div>
             </div>
         </section>
-        <!-- Related Product Section End -->
-    </jsp:body>
+        <!-- Related Product Section End -->      
+        <script src="resources/js/custom/product.js"></script>
+    </jsp:body>    
 </t:masterPage>

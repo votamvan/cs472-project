@@ -43,6 +43,7 @@
                                         <th>Quantity</th>
                                         <th>Total</th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>                                
 
@@ -54,7 +55,7 @@
                                         <tr>
                                             <td class="shoping__cart__view">
                                                 <a href="product?id=${item.product.id}">View</a>
-                                            </td>
+                                            </td>                                            
                                             <td class="shoping__cart__item">
                                                 <img src="${item.product.poster_path}" alt="${item.product.title}" width="100px" height="100px">
                                                 <h5>${item.product.title}</h5>
@@ -72,6 +73,9 @@
                                             <td class="shoping__cart__total">
                                                 <fmt:formatNumber value="${iTotal}" type="currency"/>
                                             </td>
+                                            <td class="shoping__cart__item__update">
+                                                <span class="fa fa-refresh"></span>
+                                            </td>
                                             <td class="shoping__cart__item__close">
                                                 <span class="icon_close"></span>
                                             </td>
@@ -85,8 +89,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shoping__cart__btns">
-                            <a href="/" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                            <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                            <a href="shop" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                            <a href="cart" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                                 Upadate Cart</a>
                         </div>
                     </div>
@@ -115,5 +119,5 @@
             </div>
         </section>
         <!-- Shoping Cart Section End -->
-    </jsp:body>
+    </jsp:body>    
 </t:masterPage>

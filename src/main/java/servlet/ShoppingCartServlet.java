@@ -34,7 +34,7 @@ public class ShoppingCartServlet extends HttpServlet{
                 handleRemove(req, resp);
             }
         }
-    }
+    }  
     protected void handleBuy(HttpServletRequest req, HttpServletResponse resp) throws IOException{
         int productId = Integer.valueOf(req.getParameter("id"));
         HttpSession session = req.getSession();
@@ -72,5 +72,102 @@ public class ShoppingCartServlet extends HttpServlet{
             if (cart.get(i).getProduct().getId() == id) return i;
         }
         return -1;
+    }
+    private float getCostTotal(List<ShoppingItem> cart){
+        float costTotal = 0;
+        if(cart !=null){            
+            for(ShoppingItem item: cart){
+                costTotal += item.getQuantity()*Float.parseFloat(item.getProduct().getPrice());
+            } 
+        } 
+        return costTotal;
+    }
+
+
+    //handle CRUD - JSON data format
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        String action = req.getParameter("action");
+        System.out.println(action);
+        if (action == null) {
+            req.getRequestDispatcher(JSP_PAGE).forward(req, resp);
+        }else {
+            HttpSession session = req.getSession();
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+            java.io.PrintWriter out = resp.getWriter();  
+            String json ="{}";
+            List<ShoppingItem> cart = null;
+
+            if (session.getAttribute("cart") == null) {
+                cart = new ArrayList<ShoppingItem>();
+            }else {
+                cart = (List<ShoppingItem>) session.getAttribute("cart");
+            }
+            //return cart information
+            if (action.equalsIgnoreCase("view")) {
+                int total = (cart==null)?0:cart.size();                              
+                json="{\"total\":"+total+",\"cost\":"+getCostTotal(cart)+"}";
+            }else if (action.equalsIgnoreCase("delete")) {                
+                int id = Integer.valueOf(req.getParameter("id"));
+                int index = isExisting(id, cart);
+                if (index != -1) {
+                    cart.remove(index);
+                    json="{\"result\":1,\"cost\":"+getCostTotal(cart)+"}";;
+                }else {
+                    json="{\"result\":0}";
+                }
+                System.out.println(index);
+                session.setAttribute("cart", cart);                
+            }else if (action.equalsIgnoreCase("update")) {
+                int id = Integer.valueOf(req.getParameter("id"));
+                int quantity = Integer.valueOf(req.getParameter("quantity"));
+                int index = isExisting(id, cart);
+
+                if (index > -1) {                 
+                    ShoppingItem item = cart.get(index);                       
+                    if(quantity==0){
+                        cart.remove(index);
+                    }else if(quantity>0){
+                        item.setQuantity(quantity);        
+                    }                    
+                    json="{\"result\":1,\"cost\":"+getCostTotal(cart)+"}";
+                }else{
+                    json="{\"result\":0}";
+                }
+                session.setAttribute("cart", cart);                
+            }else if (action.equalsIgnoreCase("add")) {
+                int id = Integer.valueOf(req.getParameter("id"));
+                int quantity = Integer.valueOf(req.getParameter("quantity"));
+                int index = isExisting(id, cart);
+
+                if (index == -1) {  
+                    // new product if quantity>0
+                    if(quantity>0){
+                        ShoppingItem item = new ShoppingItem();
+                        item.setProduct(pdao.getProductsById(id));
+                        item.setQuantity(quantity);
+                        cart.add(item);
+                        json="{\"result\":1,\"cost\":"+getCostTotal(cart)+"}";
+                    }else{
+                        json="{\"result\":0}";
+                    }
+                }else if (index > -1) {                 
+                    ShoppingItem item = cart.get(index);                       
+                    if(quantity==0){
+                        cart.remove(index);
+                    }else if(quantity>0){
+                        item.addQuantity(quantity);        
+                    }                    
+                    json="{\"result\":1,\"cost\":"+getCostTotal(cart)+"}";
+                }else{
+                    json="{\"result\":0}";
+                }                
+                session.setAttribute("cart", cart);                
+            }
+            System.out.print(json);
+            out.print(json);
+            out.flush();
+        }
     }
 }

@@ -10,6 +10,7 @@
 'use strict';
 
 (function ($) {
+    
 
     /*------------------
         Preloader
@@ -28,8 +29,8 @@
         if ($('.featured__filter').length > 0) {
             var containerEl = document.querySelector('.featured__filter');
             var mixer = mixitup(containerEl);
-        }
-    });
+        }        
+    });    
 
     /*------------------
         Background Set
@@ -219,6 +220,6 @@
             }
         }
         $button.parent().find('input').val(newVal);
-    });
+    });    
 
 })(jQuery);
