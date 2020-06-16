@@ -58,7 +58,7 @@
             <div class="header__top__right__auth">
                 <a href="login"><i class="fa"></i> Login</a>
             </div>
-            <div class="header__top__right__auth">
+            <div class="header__top__right__signup">
                 <a href="signup"><i class="fa"></i> Sign Up</a>
             </div>
         </div>
@@ -126,7 +126,7 @@
                             <div class="header__top__right__auth">
                                 <a href="login"><i class="fa"></i> Login</a>
                             </div>
-                            <div class="header__top__right__auth">
+                            <div class="header__top__right__signup">
                                 <a href="signup"><i class="fa"></i> Sign Up</a>
                             </div>
                         </div>
@@ -253,6 +253,7 @@
     <script src="../resources/js/mixitup.min.js"></script>
     <script src="../resources/js/owl.carousel.min.js"></script>
     <script src="../resources/js/main.js"></script>
-    <script src="resources/js/custom/cart.js"></script>
+    <script src="../resources/js/custom/cart.js"></script>
+    <script src="../resources/js/custom/user.js"></script>
   </body>    
 </html>

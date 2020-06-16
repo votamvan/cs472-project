@@ -345,5 +345,6 @@
             </div>
         </section>
         <!-- Blog Section End -->
+        <script src="../resources/js/custom/index.js"></script>
     </jsp:body>
 </t:masterPage>

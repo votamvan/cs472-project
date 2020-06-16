@@ -192,7 +192,7 @@
                                         <div class="latest-prdouct__slider__item">
                                             <c:forEach var="product" items="${ProductDAO.allProducts}" begin="0" end="2">
                                                 <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
-                                                <a href="#" class="latest-product__item">
+                                                <a href="product?id=${product.id}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">
                                                         <img src="${product.poster_path}" alt="${product.title}">
                                                     </div>
@@ -206,7 +206,7 @@
                                         <div class="latest-prdouct__slider__item">
                                             <c:forEach var="product" items="${ProductDAO.allProducts}" begin="3" end="5">
                                                 <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
-                                                <a href="#" class="latest-product__item">
+                                                <a href="product?id=${product.id}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">
                                                         <img src="${product.poster_path}" alt="${product.title}">
                                                     </div>
@@ -243,7 +243,7 @@
                                                 </div>
                                                 <div class="product__discount__item__text">
                                                     <span>${product.genres}</span>
-                                                    <h5><a href="#">${fn:substring(product.title, 0, 35)}</a></h5>
+                                                    <h5><a href="product?id=${product.id}">${fn:substring(product.title, 0, 35)}</a></h5>
                                                     <div class="product__item__price"><fmt:formatNumber value="${product.price*0.8}" type="currency"/> <span><fmt:formatNumber value="${product.price}" type="currency"/></span></div>
                                                 </div>
                                             </div>
@@ -306,5 +306,6 @@
             </div>
         </section>
         <!-- Product Section End -->
+        <script src="../resources/js/custom/shop.js"></script>
     </jsp:body>
 </t:masterPage>

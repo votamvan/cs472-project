@@ -1,5 +1,0 @@
-(function ($) {
-    $(window).on('load', function () {
-        alert("Load");
-    });
-})(jQuery);

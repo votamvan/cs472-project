@@ -41,25 +41,28 @@
                             <label for="fullname">Full Name</label>
                         </div>                    
                         <div class="col-lg-9 col-md-9">
-                            <input type="text" id="fullname" name="fullname" placeholder="John Smith" />
+                            <input type="text" id="fullname" name="fullname" placeholder="John Smith" required/>
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <label for="username">Login Name</label>
                         </div>                    
                         <div class="col-lg-9 col-md-9">
-                            <input type="text" id="username" name="username" placeholder="johnsmith" />
+                            <input type="text" id="username" name="username" placeholder="johnsmith" required/>
                         </div>
                         <div class="col-lg-3 col-md-3">
-                            <label for="password">Password</label>
-                        </div>                    
+                            <label for="password">Password</label>                            
+                        </div>                                           
                         <div class="col-lg-9 col-md-9">
-                            <input type="password" placeholder="********" id="password" name="password"/>
+                            <input type="password" placeholder="********" id="password" name="password" required/>
                         </div>
+                        <div class="col-lg-12 text-right">
+                            <span id="pwd_info"></span>
+                        </div> 
                         <div class="col-lg-3 col-md-3">
                             <label for="password2">Retype Password</label>
                         </div>                    
                         <div class="col-lg-9 col-md-9">
-                            <input type="password" placeholder="********" id="password2" name="password2"/>
+                            <input type="password" placeholder="********" id="password2" name="password2" required/>
                         </div>                                 
                         <div class="col-lg-12 text-center">
                             <button type="submit" class="site-btn">SIGN UP</button>
@@ -70,5 +73,6 @@
             </div>
         </div>
         <!-- Sign Up Form End -->
+        <script src="../resources/js/custom/signup.js"></script>
     </jsp:body>
 </t:masterPage>
