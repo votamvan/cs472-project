@@ -7,40 +7,38 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
-
 // internal import
-import model.UserDAO;
-import model.User;
+import model.ProductDAO;
+import model.Product;
 
 @WebServlet(
-    name = "AdminUserServlet",
-    urlPatterns = {"/admin/user"}
+    name = "AdminProductServlet",
+    urlPatterns = {"/admin/product"}
 )
-public class UserServlet extends HttpServlet {
+public class ProductServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private String USER_PAGE = "../WEB-INF/jsp/admin/user.jsp";
-    private UserDAO dao = new UserDAO();
+    private String JSP_PAGE = "../WEB-INF/jsp/admin/product.jsp";
+    private ProductDAO dao = new ProductDAO();
     Gson mapper = new Gson();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.setAttribute("users", dao.getAllUsers());
-        req.getRequestDispatcher(USER_PAGE).forward(req, resp);
+        req.setAttribute("products", dao.getAllProducts());
+        req.getRequestDispatcher(JSP_PAGE).forward(req, resp);
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String jsonString = req.getParameter("user");
-        User user = mapper.fromJson(jsonString, User.class);
-        if (dao.addUser(user) == null) user.reset();
-        resp.getWriter().print(mapper.toJson(user));
+        String jsonString = req.getParameter("product");
+        Product product = mapper.fromJson(jsonString, Product.class);
+        resp.getWriter().print(mapper.toJson(product));
     }
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
-        if (dao.deleteUser(id) > 0)
+        if (dao.deleteProduct(id) > 0)
             resp.getWriter().print("OK");
         else
             resp.getWriter().print("FAIL");
@@ -48,12 +46,9 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Integer id = Integer.valueOf(req.getParameter("id"));
-        String fullname = req.getParameter("fullname");
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        User user = new User(id, fullname, username, password);
-        if (dao.updateUser(user) > 0)
+        String jsonString = req.getParameter("product");
+        Product product = mapper.fromJson(jsonString, Product.class);
+        if (dao.updateProduct(product) > 0)
             resp.getWriter().print("OK");
         else
             resp.getWriter().print("FAIL");
