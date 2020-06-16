@@ -34,9 +34,6 @@
                         <input type="text" id="id" readonly="readonly" placeholder="Id auto-generated"/>
                     </div>
                     <div>
-                        <label for="imdb_id">IMDB Id</label>
-                        <input type="text" id="imdb_id" placeholder="IMDB Id - Optional"/></div>
-                    <div>
                         <label for="title">Title</label>
                         <input type="text" id="title" placeholder="Title" />
                     </div>
