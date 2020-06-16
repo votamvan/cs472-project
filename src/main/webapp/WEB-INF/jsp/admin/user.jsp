@@ -102,7 +102,7 @@ $(function(){
         }
         $("#errmsg").text("");
         var id = data.id;
-        var row_data = `<tr id=row"${id}"><td>${data.fullname}</td><td>${data.username}</td><td>${data.username}</td>`;
+        var row_data = `<tr id="row${id}"><td>${data.fullname}</td><td>${data.username}</td><td>${data.username}</td>`;
         row_data += `<button id="edit${id}">Edit</button></td>`;
         row_data += `<button id="del${id}">Delete</button></td></tr>`;
 		$('#tbl>tbody').append(row_data);

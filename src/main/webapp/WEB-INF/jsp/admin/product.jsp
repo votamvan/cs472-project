@@ -114,6 +114,7 @@ $(function(){
 		var price = $('#price').val();
 		var item = {title:title, overview:overview, genres:genres, 
                     release_date:release_date, poster_path:poster_path, price:price};
+        console.log(item);
 		$.post('/admin/product',{product: JSON.stringify(item)}, processData, "json")
 	}
 	function processData(data){
@@ -124,8 +125,8 @@ $(function(){
         }
         $("#errmsg").text("");
         var id = data.id;
-        
-        var row_data = `<tr id=row"${id}"><td><img src="${data.poster_path}" width="100px" height="100px"></td>`;
+        // var row_data = `<tr id="row${id}"><td><img src="${data.poster_path}" width="100px" height="100px"></td>`;
+        var row_data = `<tr id="row${id}"><td></td>`;
         row_data += `<td>${data.title}</td><td>${data.overview}</td>`;
         row_data += `<td>${data.genres}</td><td>${data.release_date}</td><td>${data.price}</td>`;
         row_data += `<button id="edit${id}">Edit</button></td>`;
@@ -141,7 +142,7 @@ $(function(){
         function processDel(data){
             console.log(data);
         }
-	}
+    }
 });
 </script>
 <!-- Hero Section End -->

@@ -32,6 +32,7 @@ public class ProductServlet extends HttpServlet {
             throws ServletException, IOException {
         String jsonString = req.getParameter("product");
         Product product = mapper.fromJson(jsonString, Product.class);
+        if (dao.addProduct(product) == null) product.reset();
         resp.getWriter().print(mapper.toJson(product));
     }
     @Override
