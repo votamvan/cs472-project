@@ -190,8 +190,7 @@
                                     <h4>Latest Movies</h4>
                                     <div class="latest-product__slider owl-carousel">
                                         <div class="latest-prdouct__slider__item">
-                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="0" end="2">
-                                                <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
+                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="0" end="2">                                                
                                                 <a href="product?id=${product.id}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">
                                                         <img src="${product.poster_path}" alt="${product.title}">
@@ -204,8 +203,7 @@
                                             </c:forEach>
                                         </div>
                                         <div class="latest-prdouct__slider__item">
-                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="3" end="5">
-                                                <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
+                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="3" end="5">                                                
                                                 <a href="product?id=${product.id}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">
                                                         <img src="${product.poster_path}" alt="${product.title}">
@@ -225,8 +223,7 @@
                                     <h4>Top Rated Movies</h4>
                                     <div class="latest-product__slider owl-carousel">
                                         <div class="latest-prdouct__slider__item">
-                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="10" end="12">
-                                                <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
+                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="10" end="12">                                                
                                                 <a href="product?id=${product.id}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">
                                                         <img src="${product.poster_path}" alt="${product.title}">
@@ -239,8 +236,7 @@
                                             </c:forEach>
                                         </div>
                                         <div class="latest-prdouct__slider__item">
-                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="13" end="15">
-                                                <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
+                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="13" end="15">                                                
                                                 <a href="product?id=${product.id}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">
                                                         <img src="${product.poster_path}" alt="${product.title}">
@@ -260,8 +256,7 @@
                                     <h4>Review Movies</h4>
                                     <div class="latest-product__slider owl-carousel">
                                         <div class="latest-prdouct__slider__item">
-                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="20" end="22">
-                                                <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
+                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="20" end="22">                                                
                                                 <a href="product?id=${product.id}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">
                                                         <img src="${product.poster_path}" alt="${product.title}">
@@ -274,8 +269,7 @@
                                             </c:forEach>
                                         </div>
                                         <div class="latest-prdouct__slider__item">
-                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="23" end="25">
-                                                <c:set var="genres" value="${fn:replace(fn:replace(fn:toLowerCase(product.genres),' ', '-'),',', ' ')}" />
+                                            <c:forEach var="product" items="${ProductDAO.allProducts}" begin="23" end="25">                                                
                                                 <a href="product?id=${product.id}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">
                                                         <img src="${product.poster_path}" alt="${product.title}">
