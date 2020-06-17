@@ -6,7 +6,7 @@ $(function(){
         var username = $('input#username').val();
         var password = $('input#password').val();
 
-        var regex_fullname =/^[a-zA-Z0-9]{3,100}/;
+        var regex_fullname =/^[a-zA-Z0-9\s]{3,100}/;
         //var regex_password = /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{6,}$/; <-- complex password
 
         if(fullname == null || fullname == ""){
