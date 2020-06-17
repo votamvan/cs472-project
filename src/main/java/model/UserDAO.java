@@ -1,6 +1,12 @@
 package model;
 
 import java.util.List;
+import java.util.Set;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+
 import org.apache.ibatis.session.SqlSession;
 import mapper.UserMapper;
 import utils.MyBatisUtil;
@@ -84,10 +90,22 @@ public class UserDAO {
     public static void main(String[] args){
         UserDAO dao = new UserDAO();
         System.out.println(dao.checkLogin("admin", "123456"));
-        User user = dao.addUser("admin1", "admin1", "1234");
+        User user = dao.addUser("admin2", "admin2", "1234");
         System.out.println(user);
+        dao.validator(new User(0, "admin2", "", ""));
         user.setFullname("fullname admin2");
         dao.updateUser(user);
         dao.deleteUser(user.getId());
+    }
+    public String validator(User user){
+        String message = "";
+        ValidatorFactory vf = Validation.buildDefaultValidatorFactory();
+        Validator validator = vf.getValidator();
+        Set<ConstraintViolation<User>> constraintViolations = validator.validate(user);
+        for (ConstraintViolation<User> cv : constraintViolations) {
+            message += String.format("%s: %s. ", cv.getPropertyPath(), cv.getMessage());
+        }
+        System.out.println(message);
+        return message;
     }
 }

@@ -107,7 +107,9 @@ $(function(){
         function processEdit(data){
             console.log(data);
             if (data.id <= 0){
-                alert("username exist !!! Choose another username");
+                var message = data.message;
+                if (message == null) message = "username exist !!! Choose another username";
+                $("#errmsg").text(message);
                 return;
             }
             $('#row' + data.id).find('td').each(function(index, cell){
@@ -138,7 +140,9 @@ $(function(){
 	function processData(data){
         console.log(data);
         if (data.id <= 0){
-            $("#errmsg").text("User exist or insert error !!!");
+            var message = data.message;
+            if (message == null) message = "User exist or insert error !!!";
+            $("#errmsg").text(message);
             return;
         }
         $("#errmsg").text("");

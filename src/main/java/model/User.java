@@ -1,5 +1,8 @@
 package model;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,8 +10,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User {
     private int id;
+    @NotNull
+    @Size(min=5, max=32)
     private String username;
+    @NotNull
+    @Size(min=6, max=32)
     private String password;
+    @NotNull
+    @Pattern(regexp="^[a-zA-Z0-9]{3,100}", message="length must greater than 3")
     private String fullname;
     private String role;
     public User(int id, String fullname, String username, String password){

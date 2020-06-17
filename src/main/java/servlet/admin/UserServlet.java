@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 
 // internal import
 import model.UserDAO;
+import model.ErrorMessage;
 import model.User;
 
 @WebServlet(
@@ -31,12 +32,19 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        ErrorMessage err = new ErrorMessage();
         String action = req.getParameter("action");
         String jsonString = req.getParameter("user");
         System.out.println(action + "|" + jsonString);
         User user = mapper.fromJson(jsonString, User.class);
         if (user == null) {
-            resp.getWriter().print(mapper.toJson(user));
+            err.setMessage("cannot receive data");
+            resp.getWriter().print(mapper.toJson(err));
+            return;
+        }
+        err.setMessage(dao.validator(user));
+        if (!err.getMessage().isEmpty()){
+            resp.getWriter().print(mapper.toJson(err));
             return;
         }
         if (action != null && action.equals("add")){
