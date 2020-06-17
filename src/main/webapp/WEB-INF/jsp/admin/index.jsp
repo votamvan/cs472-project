@@ -31,11 +31,7 @@
                 <div class="hero__search">
                     <div class="hero__search__form">
                         <form action="#">
-                            <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text" placeholder="What do yo u need?">
+                            <input type="text" placeholder="What do you need?">
                             <button type="submit" class="site-btn">SEARCH</button>
                         </form>
                     </div>
@@ -49,13 +45,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero__item set-bg" data-setbg="../resources/img/hero/banner.jpg">
-                    <div class="hero__text">
-                        <span>NEW SERIES</span>
-                        <h2>Movie <br />100% Origin</h2>
-                        <p>Free Pickup and Delivery Available</p>
-                        <a href="#" class="primary-btn">SHOP NOW</a>
-                    </div>
+                <div class="hero__item set-bg" data-setbg="../resources/img/hero/admin-banner.png">
                 </div>
             </div>
         </div>
