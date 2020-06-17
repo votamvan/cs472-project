@@ -24,12 +24,7 @@ public class ProductDAO {
         //filter by criteria
         List<Product> products = new java.util.ArrayList<Product>();
         if(criteria != null && criteria != ""){
-            //price
-            //TODO
-
-            //latest
-            //TODO
-
+            //TODO: price, latest
             //by genre
             for(Product p: _products){
                 if(p.getGenres().toUpperCase().contains(criteria.toUpperCase())){
