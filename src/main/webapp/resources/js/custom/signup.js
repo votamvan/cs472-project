@@ -16,8 +16,40 @@
             $('#pwd_info').html(checkStrength($('#password').val()));
         });
 
-        $(button).on('click',function(event){            
-            if($('#password').val() !== $('#password2').val()){
+        $(button).on('click',function(event){     
+            var fullname = $('input#fullname').val();
+            var username = $('input#username').val();
+            var password = $('input#password').val();
+            var password2 = $('input#password2').val();
+
+            var regex_fullname =/^[a-zA-Z0-9]{3,100}/;
+            //var regex_password = /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{6,}$/; <-- complex password
+
+            if(fullname == null || fullname == ""){
+                $(message).text("Fullname is required");
+                return false;
+            }
+            if(!regex_fullname.test(fullname)){
+                $(message).text("Fullname is invalid");
+                return false;
+            }
+            if(username == null || username == ""){
+                $(message).text("Username is required");
+                return false;
+            }
+            if(username.length < 5 || username.length > 32){
+                $(message).text("Username length is invalid");
+                return false;
+            }
+            if(password.length < 6){
+                $(message).text("Password is too short");
+                return false;
+            }            
+            // if(!regex_password.test(password)){
+            //     $(message).text("Password is invalid");
+            //     return false;
+            // }            
+            if(password !== password2){
                 $(message).html("Password is not matching");
                 return false;
             }

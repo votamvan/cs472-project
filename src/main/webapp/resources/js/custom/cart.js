@@ -42,6 +42,7 @@
                     'success': function(obj){  
                         if(obj.result == 1){
                             $(tr).remove();
+                            $('.fa-shopping-bag + span').html(obj.total);
                             $('.header__cart__price > span').html(formatter.format(obj.cost));     
                             $($('.shoping__checkout li span')[0]).html(formatter.format(obj.cost));  
                             $($('.shoping__checkout li span')[1]).html(formatter.format(obj.cost));  
@@ -83,6 +84,7 @@
                 'type': 'POST',
                 'success': function(obj){  
                     if(obj.result == 1){
+                        $('.fa-shopping-bag + span').html(obj.total);
                         $('.header__cart__price > span').html(formatter.format(obj.cost));     
                         $($('.shoping__checkout li span')[0]).html(formatter.format(obj.cost));  
                         $($('.shoping__checkout li span')[1]).html(formatter.format(obj.cost));   

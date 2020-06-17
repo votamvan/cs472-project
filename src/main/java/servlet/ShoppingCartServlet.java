@@ -113,7 +113,7 @@ public class ShoppingCartServlet extends HttpServlet{
                 int index = isExisting(id, cart);
                 if (index != -1) {
                     cart.remove(index);
-                    json="{\"result\":1,\"cost\":"+getCostTotal(cart)+"}";;
+                    json="{\"result\":1,\"cost\":"+getCostTotal(cart)+",\"total\":"+cart.size()+"}";
                 }else {
                     json="{\"result\":0}";
                 }
@@ -131,7 +131,7 @@ public class ShoppingCartServlet extends HttpServlet{
                     }else if(quantity>0){
                         item.setQuantity(quantity);        
                     }                    
-                    json="{\"result\":1,\"cost\":"+getCostTotal(cart)+"}";
+                    json="{\"result\":1,\"cost\":"+getCostTotal(cart)+",\"total\":"+cart.size()+"}";
                 }else{
                     json="{\"result\":0}";
                 }
@@ -148,7 +148,7 @@ public class ShoppingCartServlet extends HttpServlet{
                         item.setProduct(pdao.getProductsById(id));
                         item.setQuantity(quantity);
                         cart.add(item);
-                        json="{\"result\":1,\"cost\":"+getCostTotal(cart)+"}";
+                        json="{\"result\":1,\"cost\":"+getCostTotal(cart)+",\"total\":"+cart.size()+"}";
                     }else{
                         json="{\"result\":0}";
                     }
@@ -159,7 +159,7 @@ public class ShoppingCartServlet extends HttpServlet{
                     }else if(quantity>0){
                         item.addQuantity(quantity);        
                     }                    
-                    json="{\"result\":1,\"cost\":"+getCostTotal(cart)+"}";
+                    json="{\"result\":1,\"cost\":"+getCostTotal(cart)+",\"total\":"+cart.size()+"}";
                 }else{
                     json="{\"result\":0}";
                 }                

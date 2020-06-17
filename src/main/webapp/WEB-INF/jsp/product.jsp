@@ -111,10 +111,7 @@
                                 <span>(18 reviews)</span>
                             </div>
                             <div class="product__details__price"><fmt:formatNumber value="${product.price}" type="currency"/></div>
-                            <p>${product.overview}</p>
-                            <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
-                                vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
-                                quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                            <p>${product.overview}</p>                            
                             <div class="product__details__quantity">
                                 <div class="quantity">
                                     <div class="pro-qty">
@@ -152,68 +149,32 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                        aria-selected="false">Reviews <span>(1)</span></a>
+                                        aria-selected="false">Reviews <span>(18)</span></a>
                                 </li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                     <div class="product__details__tab__desc">
-                                        <h6>Products Infomation</h6>
-                                        <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                            Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus
-                                            suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam
-                                            vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada.
-                                            Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat,
-                                            accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
-                                            pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula
-                                            elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus
-                                            et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam
-                                            vel, ullamcorper sit amet ligula. Proin eget tortor risus.</p>
-                                            <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                            ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                            elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                            porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                            nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                                            Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed
-                                            porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum
-                                            sed sit amet dui. Proin eget tortor risus.</p>
+                                        <h6>Overview</h6>
+                                        <p>${product.overview}</p>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tabs-2" role="tabpanel">
                                     <div class="product__details__tab__desc">
-                                        <h6>Products Infomation</h6>
-                                        <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                            Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                            Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                            sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                            eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                            Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                            sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                            diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                            ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                            Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                            Proin eget tortor risus.</p>
-                                        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                            ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                            elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                            porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                            nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                                        <p><strong>Genres:</strong> ${product.genres}</p>
+                                        <p><strong>Realease Date:</strong> ${product.release_date}</p>
+                                        <p><strong>IMDB ID:</strong> ${product.imdb_id}</p>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tabs-3" role="tabpanel">
                                     <div class="product__details__tab__desc">
-                                        <h6>Products Infomation</h6>
-                                        <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                            Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                            Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                            sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                            eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                            Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                            sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                            diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                            ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                            Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                            Proin eget tortor risus.</p>
+                                        <h6>Great movie!!!</h6>
+                                        <p>A classic movie is worth watching.</p>
+                                        <h6>Still impressive</h6>
+                                        <p>I saw this movie since 1990.</p>
+                                        <h6>A time was far away</h6>
+                                        <p>A time was far away</p>
+                                        <h6><a href="#">More</a>...</h6>
                                     </div>
                                 </div>
                             </div>

@@ -44,7 +44,7 @@
                             <input type="text" id="fullname" name="fullname" placeholder="John Smith" required/>
                         </div>
                         <div class="col-lg-3 col-md-3">
-                            <label for="username">Login Name</label>
+                            <label for="username">User Name</label>
                         </div>                    
                         <div class="col-lg-9 col-md-9">
                             <input type="text" id="username" name="username" placeholder="johnsmith" required/>

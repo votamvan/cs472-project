@@ -10,176 +10,115 @@
         MIU-DVD SHOP - Admin Home Page
     </jsp:attribute>
     <jsp:body>
-<!-- Hero Section Begin -->
-<section class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Admin Menu</span>
+        <!-- Hero Section Begin -->
+        <section class="hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="hero__categories">
+                            <div class="hero__categories__all">
+                                <i class="fa fa-bars"></i>
+                                <span>Admin Menu</span>
+                            </div>
+                            <ul>
+                                <li><a href="/admin/user">Users</a></li>
+                                <li><a href="/admin/product">Products</a></li>
+                                <li><a href="/admin/logout">Logout</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul>
-                        <li><a href="/admin/user">Users</a></li>
-                        <li><a href="/admin/product">Products</a></li>
-                        <li><a href="/admin/logout">Logout</a></li>
-                    </ul>
+                    <div class="col-lg-9 user-mngt-info">
+                        <div class="section-title">
+                            <h3>User Information</h3>
+                            <hr/>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2">
+                                <label for="id">User ID</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" id="id" readonly="readonly" placeholder="ID auto-generated"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2">
+                                <label for="fullname">Full Name</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" id="fullname" placeholder="Full Name" required pattern="[a-zA-Z0-9\s]{3,100}" title="Fullname is required" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2">
+                                <label for="username">User Name</label> 
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" id="username" placeholder="User Name" required pattern="[a-zA-Z]{5,32}" title="Username is required"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2">
+                                <label for="password">Password</label> 
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" id="password" placeholder="Password" required/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-right">
+                                <input class="btn btn-primary" id="btn_add" type="submit" value="Add User" />
+                                <input class="btn btn-info" id="btn_edit" type="submit" value="Edit User" />
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center"><span id="errmsg"></span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-9">
-                <fieldset>
-                    <div>
-                        <label for="id">Id</label>
-                        <input type="text" id="id" readonly="readonly" placeholder="Id auto-generated"/>
+        </section>
+        <!-- Hero Section End -->
+
+
+        <!-- User List Section Begin -->
+        <section class="user-mngt spad">
+            <div class="container">
+                <div class="row">                
+                    <div class="col-lg-12">
+                        <div class="user-mngt__table">
+                            <table id="tbl">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Full Name</th>
+                                        <th>User Name</th>
+                                        <th>Password</th>
+                                        <th>Update</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${users}" var="item">
+                                        <tr id="row${item.id}">
+                                            <td><c:out value="${item.id}" /></td>
+                                            <td><c:out value="${item.fullname}" /></td>
+                                            <td><c:out value="${item.username}" /></td>
+                                            <td><c:out value="${item.password}" /></td>
+                                            <td><button class="btn-info" id="edit${item.id}" value="${item.id}">Update</button></td>
+                                            <td><button class="btn-warning" id="del${item.id}" value="${item.id}">Delete</button></td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
                     </div>
-                    <div>
-                        <label for="fullname">Fullname</label>
-                        <input type="text" id="fullname" placeholder="Fullname"/></div>
-                    <div>
-                        <label for="username">Username</label> 
-                        <input type="text" id="username" placeholder="Username" />
-                    </div>
-                    <div>
-                        <label for="password">Password</label> 
-                        <input type="text" id="password" placeholder="Password" />
-                    </div>
-                    <div>
-                        <input id="btn_add" type="submit" value="Add user" />
-                        <input id="btn_edit" type="submit" value="Edit user" />
-                    </div>
-                    <span id="errmsg"></span>
-                </fieldset>
-                <table id="tbl">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Fullname</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${users}" var="item">
-                            <tr id="row${item.id}">
-                                <td><c:out value="${item.id}" /></td>
-                                <td><c:out value="${item.fullname}" /></td>
-                                <td><c:out value="${item.username}" /></td>
-                                <td><c:out value="${item.password}" /></td>
-                                <td><button id="edit${item.id}" value="${item.id}">Edit</button></td>
-                                <td><button id="del${item.id}" value="${item.id}">Delete</button></td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-<script>
-$(function(){
-    function toggleBtnAddEdit(condition){
-        if (condition == "ON" || condition == "on") {
-            $('#btn_add').attr('disabled', false);
-            $('#btn_edit').attr('disabled', true);
-        }else {
-            $('#btn_add').attr('disabled', true);
-            $('#btn_edit').attr('disabled', false);
-        }
-    }
-    $('table#tbl button').each(function(index, btn) {
-        var id = btn.id;
-        if (id.substring(0,3) == "del"){
-            $("button#" + id).click(del);
-        }else if (id.substring(0,4) == "edit"){
-            $("button#" + id).click(edit);
-        }
-    });
-    $('#btn_add').click(add);
-    $('#btn_edit').click(commit_edit);
-    toggleBtnAddEdit("on");
-
-    function add(evt) {
-        ajax_submit("add", processData);
-    }
-    function commit_edit(evt){
-        ajax_submit("edit", processEdit);
-        function processEdit(data){
-            console.log(data);
-            if (data.id <= 0){
-                alert("username exist !!! Choose another username");
-                return;
-            }
-            $('#row' + data.id).find('td').each(function(index, cell){
-                if (index == 1) cell.innerHTML = data.fullname;
-                if (index == 2) cell.innerHTML = data.username;
-                if (index == 3) cell.innerHTML = data.password;
-            });
-            $("input#id").val("");
-            $("input#fullname").val("");
-            $("input#username").val("");
-            $("input#password").val("");
-            toggleBtnAddEdit("on");
-        }
-    }
-    function ajax_submit(type, processFunc) {
-        var id = $('input#id').val();
-        if (id == null || id == "") id = "0";
-        var fullname = $('input#fullname').val();
-		var username = $('input#username').val();
-		var password = $('input#password').val();
-        var item = {id:id, fullname:fullname, username:username, password:password};
-        console.log(item);
-        if (type == "add")
-            $.post('/admin/user?action=add',{user: JSON.stringify(item)}, processFunc, "json");
-        else
-            $.post('/admin/user?action=edit',{user: JSON.stringify(item)}, processFunc, "json");
-    }
-	function processData(data){
-        console.log(data);
-        if (data.id <= 0){
-            $("#errmsg").text("User exist or insert error !!!");
-            return;
-        }
-        $("#errmsg").text("");
-        var row_data = "<tr id=row" + data.id + ">"
-                       + "<td>" + data.id + "</td>"
-                       + "<td>" + data.fullname + "</td>"
-                       + "<td>" + data.username + "</td>"
-                       + "<td>" + data.password + "</td>"
-                       + "<td><button id=edit" + data.id + " value=" + data.id + ">Edit</button></td>"
-                       + "<td><button id=del" + data.id + " value=" + data.id + ">Delete</button></td>"
-                       + "</tr>";
-		$('#tbl tr:last').after(row_data);
-        $("button#del" + data.id).click(del);
-        $("button#edit" + data.id).click(edit);
-	}
-    function del(){
-        var id = this.value;
-        console.log("DELETE", id);
-
-        $('#row' + id).remove();
-		$.ajax({type:'DELETE', url:'/admin/user?id=' + id, success:processDel});
-        function processDel(data){
-            console.log(data);
-        }
-    }
-    function edit(){
-        var id = this.value;
-        console.log("EDIT", id);
-        var data = [];
-        $('#row' + id).find('td').each(function(index, cell){
-            data[index] = cell.innerHTML;
-        });
-        console.log(data);
-        $("input#id").val(data[0]);
-        $("input#fullname").val(data[1]);
-        $("input#username").val(data[2]);
-        $("input#password").val(data[3]);
-        toggleBtnAddEdit("off");
-    }
-});
-</script>
-<!-- Hero Section End -->
+        </section>
+        <!-- User List Section Begin -->
+        <script src="../resources/js/custom/admin/user.js"></script>
     </jsp:body>
 </t:adminPage>

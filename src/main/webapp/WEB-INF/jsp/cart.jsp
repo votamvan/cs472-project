@@ -118,6 +118,6 @@
                 </div>
             </div>
         </section>
-        <!-- Shoping Cart Section End -->
+        <!-- Shoping Cart Section End -->     
     </jsp:body>    
 </t:masterPage>

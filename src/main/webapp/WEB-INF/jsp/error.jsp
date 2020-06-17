@@ -1,6 +1,30 @@
 <%@page isErrorPage="true" import="java.io.*" %>
 
-<h3>There was an error happenned!!!</h3>
+<h1>OOP!!!!</h1>
+<h3>There was an error happenned</h3>
+<hr/>
+<p>Please contact to our web master to get more information. Thank you!</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 <hr/>
 Message: 
 <%=exception.getMessage()%>

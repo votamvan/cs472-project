@@ -74,7 +74,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("message", null);
             nextPage = "/admin/";
         }else {
-            String message = "Invalid email/password or access denied.";
+            String message = "Invalid username or password.";
             session.setAttribute("message", message);
             System.out.println(message);
         }

@@ -32,7 +32,7 @@ public class SignUpServlet extends HttpServlet {
         String password = req.getParameter("password");
         User u = dao.addUser(fullname, username, password);
         if (u == null) {
-            req.setAttribute("message", "user exist or insert error");
+            req.setAttribute("message", "There was an error for signing up!");
             req.getRequestDispatcher(JSP_PAGE).forward(req, resp);
         }else {
             HttpSession session = req.getSession();

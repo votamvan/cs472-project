@@ -41,13 +41,13 @@
                             <label for="username">User Name</label>
                         </div>                    
                         <div class="col-lg-9 col-md-9">
-                            <input type="text" id="username" name="username" placeholder="johnsmith" value="${cookie.username.value}">
+                            <input type="text" id="username" name="username" placeholder="johnsmith" value="${cookie.username.value}" required pattern="[a-zA-Z]{2,25}" title="Username is required" />
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <label for="password">Password</label>
                         </div>                    
                         <div class="col-lg-9 col-md-9">
-                            <input type="password" placeholder="********" id="password" name="password"/>
+                            <input type="password" placeholder="********" id="password" name="password" required pattern="[a-zA-Z0-9]{2,25}" />
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <input type="checkbox" id="remember" name="remember" <c:if test = "${cookie.username != null}">checked</c:if>/>
@@ -64,5 +64,6 @@
             </div>
         </div>
         <!-- Login Form End -->
+        <script src="../resources/js/custom/admin/login.js"></script>
     </jsp:body>
 </t:adminPage>

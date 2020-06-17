@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
     private void handleRememberMe(HttpServletRequest req, HttpServletResponse resp){
         String username = req.getParameter("username");
         String remember = req.getParameter("remember");
-        System.out.println("remember:" + remember);
+        //System.out.println("remember:" + remember);
         if (remember == null || remember == "null") { // erase cookie
             Cookie cookie = new Cookie("username", "");
             cookie.setPath("/");
@@ -70,7 +70,7 @@ public class LoginServlet extends HttpServlet {
     private String handleLogin(HttpServletRequest req, HttpServletResponse resp){
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        System.out.println(username + "|" + password);
+        //System.out.println(username + "|" + password);
         String nextPage = "/login";
         User user = dao.checkLogin(username, password);
         HttpSession session = req.getSession();
@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("message", null);
             nextPage = HOME_PAGE;
         }else {
-            String message = "Invalid email/password";
+            String message = "Invalid username or password.";
             session.setAttribute("message", message);
             System.out.println(message);
         }

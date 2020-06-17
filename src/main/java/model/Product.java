@@ -1,5 +1,7 @@
 package model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,6 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Product {
 	private int id;
+	@NotNull
+    @Size(min=5, max=255)
 	private String title;
 	private String overview;
 	private String release_date;
