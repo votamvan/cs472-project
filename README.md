@@ -5,6 +5,7 @@ Professor: Rakesh Shrestha
 
 Team:
 
+* Tam Van Vo - 610746
 * Duy Trung Do - 986891
-* Tam Van Vo - 610746   
+   
    
