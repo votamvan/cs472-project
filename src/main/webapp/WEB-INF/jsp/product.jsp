@@ -196,7 +196,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <c:forEach var="product" items="${ProductDAO.allProducts}" begin="13" end="17">   
+                    <c:forEach var="product" items="${ProductDAO.allProducts}" begin="13" end="16">   
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="${product.poster_path}">
