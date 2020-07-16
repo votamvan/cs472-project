@@ -110,7 +110,7 @@
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
                                             <p>Email<span>*</span></p>
-                                            <input type="text" placeholder="compro@miu.edu" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" title="Invalid email format">
+                                            <input type="text" placeholder="dvd@online.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" title="Invalid email format">
                                         </div>
                                     </div>
                                 </div>                                
