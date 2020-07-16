@@ -22,7 +22,7 @@
 
 <t:masterPage>
     <jsp:attribute name="title">
-        MIU-DVD SHOP - Shop
+        DVD SHOP - Shop
     </jsp:attribute>
     <jsp:body>   
         <!-- Hero Section Begin -->
