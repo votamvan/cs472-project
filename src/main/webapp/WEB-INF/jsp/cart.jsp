@@ -7,7 +7,7 @@
 
 <t:masterPage>
     <jsp:attribute name="title">
-        MIU-DVD SHOP - Shopping Cart
+        DVD SHOP - Shopping Cart
     </jsp:attribute>
     <jsp:body>   
         <!-- Breadcrumb Section Begin -->
