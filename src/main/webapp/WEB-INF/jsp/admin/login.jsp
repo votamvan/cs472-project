@@ -4,7 +4,7 @@
 
 <t:adminPage>
     <jsp:attribute name="title">
-        MIU-DVD SHOP - Admin Login Page
+        DVD SHOP - Admin Login Page
     </jsp:attribute>
     <jsp:body>
         <!-- Breadcrumb Section Begin -->

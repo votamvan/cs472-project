@@ -3,7 +3,7 @@
 
 <t:masterPage>
     <jsp:attribute name="title">
-        MIU-DVD SHOP - Contact
+        DVD SHOP - Contact
     </jsp:attribute>
     <jsp:body>   
 

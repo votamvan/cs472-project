@@ -7,7 +7,7 @@
 <fmt:setLocale value="en_US"/>
 <t:adminPage>
     <jsp:attribute name="title">
-        MIU-DVD SHOP - Admin Home Page
+        DVD SHOP - Admin Home Page
     </jsp:attribute>
     <jsp:body>
         <!-- Hero Section Begin -->

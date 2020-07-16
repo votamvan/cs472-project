@@ -22,7 +22,7 @@
 
 <t:masterPage>
     <jsp:attribute name="title">
-        MIU-DVD SHOP - Shop
+        DVD SHOP - Shop
     </jsp:attribute>
     <jsp:body>   
         <!-- Hero Section Begin -->
@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="breadcrumb__text">
-                            <h2>MIU-DVD SHOP</h2>
+                            <h2>DVD SHOP</h2>
                             <div class="breadcrumb__option">
                                 <a href="/">Home</a>
                                 <span>Shop</span>
