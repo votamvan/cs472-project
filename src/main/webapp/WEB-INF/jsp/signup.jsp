@@ -4,7 +4,7 @@
 
 <t:masterPage>
     <jsp:attribute name="title">
-        MIU-DVD SHOP - Sign Up
+        DVD SHOP - Sign Up
     </jsp:attribute>
     <jsp:body>   
         <!-- Breadcrumb Section Begin -->
