@@ -12,7 +12,7 @@
 </c:if>
 <t:masterPage>
     <jsp:attribute name="title">
-        MIU-DVD SHOP - Checkout
+        DVD SHOP - Checkout
     </jsp:attribute>
     <jsp:body>   
         <!-- Breadcrumb Section Begin -->
