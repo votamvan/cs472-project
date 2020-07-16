@@ -8,7 +8,7 @@
 <jsp:useBean id= "ProductDAO" scope= "page"   class= "model.ProductDAO" />  
 <t:masterPage>
     <jsp:attribute name="title">
-        MIU-DVD SHOP - Home
+        DVD SHOP - Home
     </jsp:attribute>
     <jsp:body>   
         <!-- Hero Section Begin -->
